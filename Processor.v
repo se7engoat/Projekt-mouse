@@ -66,11 +66,11 @@ module Processor(
 
 
     //Instantiate program memory here - ROM
-    ROM ROM0(
-        .CLK(CLK),
-        .DATA(ROM_DATA),
-        .ADDR(ROM_ADDRESS)
-    );
+    // ROM ROM0(
+    //     .CLK(CLK),
+    //     .DATA(ROM_DATA),
+    //     .ADDR(ROM_ADDRESS)
+    // );
 
     //There is a program counter which points to the current operation. The program counter
     //has an offset that is used to reference information that is part of the current operation

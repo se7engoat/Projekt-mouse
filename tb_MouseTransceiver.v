@@ -86,6 +86,7 @@ module tb_MouseTransceiver;
         $display("Testbench complete.");
         $finish;
     // Monitor outputs
+    
     initial begin
         $monitor("Time=%0t | MouseStatus=%b | MouseX=%d | MouseY=%d | MouseZ=%d | SEG_SELECT=%b | HEX_OUT=%b", 
                  $time, MouseStatus, MouseX, MouseY, MouseZ, SEG_SELECT, HEX_OUT);
