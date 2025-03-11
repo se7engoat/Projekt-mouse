@@ -1,4 +1,4 @@
-`timescale 1ns/1ps;
+`timescale 1ns/1ps
 
 module tb_MouseReceiver;
 
@@ -11,7 +11,6 @@ module tb_MouseReceiver;
     wire [7:0] BYTE_READ;
     wire [1:0] BYTE_ERROR_CODE;
     wire BYTE_READY;
-
 
     // Instantiate the MouseReciever Module
     MouseReceiver uut (
@@ -52,7 +51,7 @@ module tb_MouseReceiver;
             sendPS2Bit(0); // always 0
 
             // send Data Byte (LSB first in)
-            for (i = 0; i < 8; i++ ) begin
+            for (i = 0; i < 8; i = i + 1 ) begin
                 sendPS2Bit(dataByte[i]);
             end
 
@@ -115,7 +114,7 @@ module tb_MouseReceiver;
 
         // Waiting for byte reception
         #200;
-        if (BYTE_ERROR_CODE[1]) {
+        if (BYTE_ERROR_CODE[1])
             $display("Stop Bit Error detected");
         else
             $display("ERROR: Stop bit error is not detected");
@@ -144,7 +143,6 @@ module tb_MouseReceiver;
             $display("Overflow Detected: Extra bit ignored.");
         else
             $display("Error: Overflow condition not handled correctly");
-        }
 
         // Case 6 - Rapid Byte Reception
         #200;

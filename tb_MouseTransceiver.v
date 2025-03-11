@@ -69,7 +69,7 @@ module tb_MouseTransceiver;
         $display("Scrolling Mouse Wheel: MouseZ = 255, overflow detected (DOT_IN does not Toggle)");
 
         #20;
-        force uut.tempMouseZ = 8'sd-1;
+        force uut.tempMouseZ = -8'd1;
         $display("Scrolling Mouse Wheel: MouseZ = 255, overflow detected (DOT_IN does not Toggle)");
         
         // Test different MouseStatus states (Simulate button press)
@@ -85,8 +85,12 @@ module tb_MouseTransceiver;
         #100;
         $display("Testbench complete.");
         $finish;
+        
+    end
+
+
+
     // Monitor outputs
-    
     initial begin
         $monitor("Time=%0t | MouseStatus=%b | MouseX=%d | MouseY=%d | MouseZ=%d | SEG_SELECT=%b | HEX_OUT=%b", 
                  $time, MouseStatus, MouseX, MouseY, MouseZ, SEG_SELECT, HEX_OUT);

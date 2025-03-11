@@ -11,7 +11,7 @@ module tb_MouseTransmitter;
     wire DATA_MOUSE_OUT;
     wire DATA_MOUSE_OUT_EN;
     reg SEND_BYTE;
-    reg [7:0] BYTE_TO_SEND,
+    reg [7:0] BYTE_TO_SEND;
     wire BYTE_SENT;
 
     // Instantiate the MouseTransmitter Module under test

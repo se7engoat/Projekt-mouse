@@ -96,7 +96,7 @@ module Processor(
         //I/O
         .IN_A(CurrRegA),
         .IN_B(CurrRegB),
-        .IN_OPP_TYPE(ProgMemoryOut[7:4]),
+        .ALU_OP_CODE(ProgMemoryOut[7:4]),
         .OUT_RESULT(AluOut)
     );
 

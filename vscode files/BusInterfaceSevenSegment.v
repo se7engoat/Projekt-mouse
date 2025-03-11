@@ -38,7 +38,7 @@ module BusInterfaceSevenSegment(
     );
     
     reg [15:0] segment7;
-    SevenSegmentWrapper SevenSeg (
+    SevenSegmentWrapper SevenSegmentWrapper (
         .CLK(CLK),
         .RESET(RESET),
         .NUM0(segment7[15:12]),
