@@ -124,7 +124,7 @@ set_property PACKAGE_PIN W4 [get_ports SEG_SELECT[3]]
 # LEDS
 set_property PACKAGE_PIN L1 [get_ports LED_LIGHTS[15]]
     set_property IOSTANDARD LVCMOS33 [get_ports LED_LIGHTS[15]]
-set_property PACKAGE_PIN P1 [get_ports LIGHTS[14]]
+set_property PACKAGE_PIN P1 [get_ports LED_LIGHTS[14]]
     set_property IOSTANDARD LVCMOS33 [get_ports LED_LIGHTS[14]]
 set_property PACKAGE_PIN N3 [get_ports LED_LIGHTS[13]]
     set_property IOSTANDARD LVCMOS33 [get_ports LED_LIGHTS[13]]
