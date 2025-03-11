@@ -20,6 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+
 module BusInterfaceSevenSegment(
     input CLK,
     input RESET,
@@ -33,7 +34,7 @@ module BusInterfaceSevenSegment(
     
     //IO signals
     output SEG_SELECT,
-    output LED
+    output LED_OUT
     
     );
     
@@ -79,3 +80,4 @@ module BusInterfaceSevenSegment(
         DataOut = Memory[BUS_DATA[3:0]];
     end
 endmodule
+

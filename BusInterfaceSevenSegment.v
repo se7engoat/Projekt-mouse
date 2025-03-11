@@ -20,6 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+
 module BusInterfaceSevenSegment(
     input CLK,
     input RESET,
@@ -33,19 +34,18 @@ module BusInterfaceSevenSegment(
     
     //IO signals
     output SEG_SELECT,
-    output LED
+    output LED_OUT
     
     );
     
     reg [15:0] segment7;
-    SevenSegmentWrapper SevenSeg (
+    SevenSegmentWrapper SevenSegmentWrapper (
         .CLK(CLK),
-        .RESET(RESET),
         .NUM0(segment7[15:12]),
         .NUM1(segment7[11:8]),
         .NUM2(segment7[7:4]),
         .NUM3(segment7[3:0]),
-        .LED(LED),
+        .LED_OUT(LED_OUT),
         .SEG_SELECT(SEG_SELECT)
     );
     
@@ -79,3 +79,4 @@ module BusInterfaceSevenSegment(
         DataOut = Memory[BUS_DATA[3:0]];
     end
 endmodule
+

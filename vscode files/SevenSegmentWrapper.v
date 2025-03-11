@@ -23,7 +23,7 @@
 module SevenSegmentWrapper(
         input CLK,
         input [3:0] NUM0, NUM1, NUM2, NUM3,
-        output [7:0] LED,
+        output [7:0] LED_OUT,
         output [3:0] SEG_SELECT
     );
     

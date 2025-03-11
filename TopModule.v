@@ -79,14 +79,13 @@ module TopModule(
     
     BusInterfaceSevenSegment SevenSegment(
         .CLK(CLK),
-        .RESET(RESET),
         .BUS_ADDR(BUS_ADDR),
         .BUS_DATA(BUS_DATA),
         .BUS_WE(BUS_WE),
         .BUS_INTERRUPT_RAISE(BUS_INTERRUPT_RAISE),
         .BUS_INTERRUPT_ACK(BUS_INTERRUPT_ACK),
         .SEG_SELECT(SEG_SELECT),
-        .LED(LED)
+        .LED_OUT(LED_OUT)
     );
     
     BusInterfaceMouse MouseInterface(

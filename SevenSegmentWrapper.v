@@ -23,7 +23,7 @@
 module SevenSegmentWrapper(
         input CLK,
         input [3:0] NUM0, NUM1, NUM2, NUM3,
-        output [7:0] SEG7LIGHT,
+        output [7:0] LED_OUT,
         output [3:0] SEG_SELECT
     );
     
@@ -78,7 +78,7 @@ module SevenSegmentWrapper(
         .BIN_IN(MuxOut),
         .DOT_IN(1'b0),
         .SEG_SELECT_OUT(SEG_SELECT),
-        .HEX_OUT(SEG7LIGHT)
+        .HEX_OUT(LED_OUT)
     );
     
 endmodule
