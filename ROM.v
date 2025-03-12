@@ -33,6 +33,7 @@ parameter RAMAddrWidth = 8;
 reg [7:0] ROM [(2**RAMAddrWidth)-1:0];
 
 // Load program
+// The file's path should be the absolute path.
 initial $readmemh("Complete_Demo_ROM.txt", ROM);
 
 //single port ram
