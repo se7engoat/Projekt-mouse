@@ -3,16 +3,17 @@
 
 module TopModule_tb;
 
-    // Parameters
+    //inputs
     reg CLK;
     reg RESET;
+    
+    
+    //outputs
     wire [3:0] SEG_SELECT;
     wire [7:0] LED;
     wire [15:0] LED_LIGHTS;
     wire CLK_MOUSE;
     wire DATA_MOUSE;
-    
-    // Wires for internal connections
     wire [7:0] BUS_DATA;
     wire [7:0] BUS_ADDR;
     wire BUS_WE;
@@ -25,7 +26,7 @@ module TopModule_tb;
     TopModule DUT (
         .CLK(CLK),
         .RESET(RESET),
-        .CLK_MUOSE(CLK_MOUSE),
+        .CLK_MOUSE(CLK_MOUSE),
         .DATA_MOUSE(DATA_MOUSE),
         .SEG_SELECT(SEG_SELECT),
         .LED(LED),

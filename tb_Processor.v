@@ -1,133 +1,23 @@
-// `timescale 1ns / 1ps
-
-
-// module tb_Processor;
-//     reg CLK;
-//     reg RESET;
-//     wire [7:0] BUS_DATA;
-//     wire [7:0] BUS_ADDR;
-//     wire BUS_WE;
-//     wire [7:0] ROM_ADDRESS;
-//     reg [7:0] ROM_DATA;
-//     reg [1:0] BUS_INTERRUPTS_RAISE;
-//     wire [1:0] BUS_INTERRUPTS_ACK;
-
-
-//     reg [7:0] registerA;
-//     reg [7:0] registerB;
-//     Processor uut (
-//         .RESET(RESET),
-//         .CLK(CLK),
-//         .BUS_DATA(BUS_DATA);
-//         .BUS_ADDR(BUS_ADDR);
-//         .BUS_WE(BUS_WE);
-//         .ROM_ADDRESS(ROM_ADDRESS);
-//         .ROM_DATA(ROM_DATA);
-//         .BUS_INTERRUPTS_RAISE(BUS_INTERRUPTS_RAISE);
-//         .BUS_INTERRUPTS_ACK(BUS_INTERRUPTS_ACK);
-//     );
-    
-
-//     //20ns for each clock cycle
-
-//     //this can be a task that can be used for maybe a load and store function
-//     //LOAD instruction
-//     task readFromMemory();
-//     begin
-//         BUS_WE = 0;
-//         if (!BUS_WE) begin
-//             #40 BUS_DATA = 8'hC0;
-//             registerA = BUS_DATA;
-//             $display("Read Value from Memory and sent to registerA: 0xC0"); 
-//         end else 
-//             $display("BUS WRITE not Enabled!")
-        
-
-
-//         #40 BUS_DATA = 8'hC1;
-//         registerB = BUS_DATA;
-//         $display("Read Value from Memory and sent to registerB: 0xC0");
-
-
-//     end
-
-//     //STORE instruction
-//     task writeToMemory();
-//     begin
-
-//         #40 registerA
-        
-//     end
-
-//     //Arithmetic instruction
-//     task mathOP(int A. int B, int opCode);
-//     begin
-        
-//     end
-
-//     //Jump Instruction
-//     task jumpInstruction(int Addr, int returnContext);
-//     begin
-        
-//     end
-
-//     //Branch Instruction
-//     task branchInstr(int Addr, int Context);
-//     begin
-        
-//     end
-
-//     //Dereference
-//     task Dereference(int A, int B);
-//     begin
-        
-//     end
-
-    
-//     always #10 CLK = ~CLK;
-    
-//     initial begin
-        
-//         CLK = 0;
-//         RESET = 1;
-    
-//         #50 RESET = 0;
-//         $display("RESET seems to work");
-    
-    
-//         //Reading ROM ADDR and DATA
-//         #20
-//         force uut.ROM_DATA = 8'hE5;
-//         force uut.ROM_ADDRESS = 8'h0F;
-//         $display("At time %0t, ROM Data read = %b, ROM Address fetched = %b" , $time, ROM_DATA, ROM_ADDRESS);
-    
-//         //Edge cases for the ROM address space
-//         #20 
-//         force uut.ROM_ADDRESS = 8'FF;
-//         $display("At time %0t, highest ROM address space read = %b", $time, ROM_DATA);
-//         #20
-//         force uut.ROM_ADDRESS = 8'00;
-//         $display("At time %0t, lowest ROM address space read = %b", $time, ROM_DATA);
-        
-      
-//         #20
-//         //Instruction READ
-//         readFromMemory();
-
-//         #20
-//         //Instruction WRITE
-//         writeToMemory();
-
-//         #20 
-//         //Instruction MATH
-//     end
-
-// endmodule
-
-
-
-
 `timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 12.03.2025 11:23:10
+// Design Name: 
+// Module Name: tb_Processor
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 
 module Processor_tb;
 
@@ -160,9 +50,8 @@ module Processor_tb;
     );
 
     // Clock generation
-    always begin
-        #5 CLK = ~CLK;  // Clock period is 10ns (100MHz)
-    end
+    always #5 CLK = ~CLK;  // Clock period is 10ns (100MHz)
+    
 
     // Initial block for stimulus
     initial begin
@@ -170,8 +59,9 @@ module Processor_tb;
         CLK = 0;
         RESET = 0;
         BUS_INTERRUPTS_RAISE = 2'b00;
-        ROM_DATA = 8'hFF;  // Placeholder value for ROM data
+        // Placeholder value for ROM data
         //It is also the init state of the processor SM after a reset.
+        ROM_DATA = 8'hFF;  
 
         // Apply reset
         RESET = 1;

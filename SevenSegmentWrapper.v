@@ -46,7 +46,7 @@ module SevenSegmentWrapper(
     );
     
     //Instantiate a 2 bit counter. This counter will provide the strobe output to
-    // select which of the 4 available 7 segment displays to be currently displayed
+    // select one out of the 4 available seven segment displays to be currently displayed
     // at a refresh rate of 1kHz (Obtained from the trigger output of the 17 bit counter).
     GenericCounter # (
         .COUNTER_WIDTH(2),
