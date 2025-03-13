@@ -23,7 +23,7 @@
 module TopModule(
     input CLK,
     input RESET,
-    inout CLK_MUOSE,
+    inout CLK_MOUSE,
     inout DATA_MOUSE,
     
     output [3:0] SEG_SELECT,
