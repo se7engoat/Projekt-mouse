@@ -1,4 +1,23 @@
 `timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 13.03.2025 13:36:17
+// Design Name: 
+// Module Name: tb_TopModule
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 
 
 module TopModule_tb;
@@ -7,18 +26,17 @@ module TopModule_tb;
     reg CLK;
     reg RESET;
     
-    
     //outputs
     wire [3:0] SEG_SELECT;
-    wire [7:0] LED;
+    wire [7:0] LED_OUT;
     wire [15:0] LED_LIGHTS;
     wire CLK_MOUSE;
     wire DATA_MOUSE;
-    wire [7:0] BUS_DATA;
-    wire [7:0] BUS_ADDR;
-    wire BUS_WE;
-    wire [1:0] BUS_INTERRUPTS_ACK;
-    wire [1:0] BUS_INTERRUPTS_RAISE;
+    reg [7:0] BUS_DATA;
+    reg [7:0] BUS_ADDR;
+    reg BUS_WE;
+    reg [1:0] BUS_INTERRUPT_ACK;
+    reg [1:0] BUS_INTERRUPT_RAISE;
     wire [7:0] ROM_ADDRESS;
     wire [7:0] ROM_DATA;
     
@@ -29,82 +47,102 @@ module TopModule_tb;
         .CLK_MOUSE(CLK_MOUSE),
         .DATA_MOUSE(DATA_MOUSE),
         .SEG_SELECT(SEG_SELECT),
-        .LED(LED),
+        .LED_OUT(LED_OUT),
         .LED_LIGHTS(LED_LIGHTS)
     );
     
     // Clock generation (period: 10ns, frequency: 100MHz)
-    always begin
-        #5 CLK = ~CLK;  // Toggle every 5ns, so 10ns period
-    end
-    
-    // Initial block for testbench initialization
-    initial begin
-        // Initialize the signals
-        CLK = 0;
-        RESET = 0;
-        // Initialize the mouse signals to zero (you can modify this as per your needs)
-        CLK_MOUSE = 0;
-        DATA_MOUSE = 0;
+        always #5 CLK = ~CLK;
         
-        // Apply reset
-        RESET = 1;
-        #20;  // Keep the reset active for 20ns
-        RESET = 0;
-        
-        // Apply some test cases
-        #10; // Wait for 10ns after reset
-        
-        // Test case 1: Write BUS_DATA = 0x49 when BUS_WE = 1
-        // Set the write enable (BUS_WE) and write data (BUS_DATA)
-        BUS_ADDR = 8'h10;  // Arbitrary address (can be modified)
-        BUS_DATA = 8'h49;  // Set the data to 0x49
-        BUS_WE = 1;        // Set write enable to 1
-        #10;               // Wait for a small amount of time
-        // Check if BUS_WE = 1 and BUS_DATA = 0x49
-        if (BUS_WE == 1) begin
-            if (BUS_DATA == 8'h49) begin
-                $display("Test case 1 passed: BUS_WE = 1 and BUS_DATA = 0x49");
+        // Initial block for testbench initialization
+        initial begin
+            // Initialize the signals
+            CLK = 0;
+            RESET = 0;
+            
+            // Apply reset
+            RESET = 1;
+            #20; // Keep the reset active for 20ns
+            RESET = 0;
+            
+            // Test case 1: Simulate memory write to address 0x10 with data 0x49
+            // Write enable (BUS_WE = 1), address = 0x10, data = 0x49
+            BUS_ADDR = 8'h10;  // Arbitrary address
+            BUS_DATA = 8'h49;  // Data to write
+            BUS_WE = 1;        // Enable write
+            #10;               // Wait for a small amount of time
+            
+            // Test case 2: Check the bus values after the write
+            if (BUS_WE == 1) begin
+                if (BUS_DATA == 8'h49) begin
+                    $display("Test case 1 passed: Bus write operation successful (BUS_DATA = 0x49)");
+                end else begin
+                    $display("Test case 1 failed: Expected BUS_DATA = 0x49, got %h", BUS_DATA);
+                end
             end else begin
-                $display("Test case 1 failed: Expected BUS_DATA = 0x49, got %h", BUS_DATA);
+                $display("Test case 1 failed: BUS_WE was expected to be 1, got %b", BUS_WE);
             end
-        end else begin
-            $display("Test case 1 failed: Expected BUS_WE = 1, got %b", BUS_WE);
+            
+            // Reset the write enable
+            BUS_WE = 0;
+            
+//            // Test case 3: Simulate mouse input signal change
+//            // Change mouse data signal
+//            DATA_MOUSE = 1;  // Simulate mouse data being set
+//            #10;
+//            DATA_MOUSE = 0;  // Reset the mouse data
+//            #10;
+    
+            // Test case 4: Simulate Interrupt Raise and Acknowledge for Timer
+            // Raise interrupt for the Timer module
+            BUS_INTERRUPT_RAISE = 2'b01; // Set interrupt for Timer
+            #10;
+            
+            // Acknowledge the interrupt for Timer
+            BUS_INTERRUPT_ACK = 2'b01; // Set interrupt acknowledge for Timer
+            #10;
+            
+            // Clear the interrupt raise and ack signals
+            BUS_INTERRUPT_RAISE = 2'b00; 
+            BUS_INTERRUPT_ACK = 2'b00;
+            #10;
+            
+            // Test case 5: Write to LED (e.g., turn on LED 0xFF)
+            BUS_ADDR = 8'h20;  // Assuming address 0x20 controls the LED
+            BUS_DATA = 8'hFF;  // Arbitrary data to turn on LEDs
+            BUS_WE = 1;        // Write enable
+            #10;               // Wait for a small amount of time
+            
+            // Check if the LEDs were correctly updated (assuming it writes to LED_LIGHTS)
+            if (LED_LIGHTS == 16'hFFFF) begin
+                $display("Test case 5 passed: LED values written successfully (LED_LIGHTS = 0xFFFF)");
+            end else begin
+                $display("Test case 5 failed: Expected LED_LIGHTS = 0xFFFF, got %h", LED_LIGHTS);
+            end
+            
+            // Test case 6: Simulate Seven Segment Display update
+            // Writing a value to the segment display (assuming address for SEG is 0x30)
+            BUS_ADDR = 8'h30;  // Address for seven-segment display
+            BUS_DATA = 8'h01;  // Example data to display (for example, showing "1")
+            BUS_WE = 1;        // Write enable
+            #10;
+            
+            // Check if SEG_SELECT reflects the expected value
+            if (SEG_SELECT == 4'b0001) begin
+                $display("Test case 6 passed: Seven Segment updated successfully (SEG_SELECT = 0x1)");
+            end else begin
+                $display("Test case 6 failed: Expected SEG_SELECT = 0x1, got %b", SEG_SELECT);
+            end
+    
+            // End of simulation after a certain period
+            #100;
+            $finish;
         end
-        BUS_WE = 0;  // Reset the write enable
-
-        // Example test case: simulate mouse input signal change
-        DATA_MOUSE = 1;
-        #10;  // Wait for some time
-        DATA_MOUSE = 0;
-        
-        // Example test case: simulate LED output change based on the bus
-        // Set bus data, address, and write enable signal
-        // Assuming the processor logic writes to the LEDs on specific address
-        // Assuming LED address is 0x10 for simplicity in the test case
-        BUS_ADDR = 8'h10;
-        BUS_DATA = 8'hAA;  // Arbitrary data value to write
-        BUS_WE = 1;        // Write enable
-        #10;
-        BUS_WE = 0;        // Disable write
-        
-        // Example: Assert interrupt raise signal for testing interrupt behavior
-        BUS_INTERRUPTS_RAISE = 2'b01; // Raise interrupt for testing
-        #10;
-        BUS_INTERRUPTS_RAISE = 2'b00; // Clear interrupt
-        
-        // Check different scenarios based on your memory, timer, or other module interactions
-        // Add more test cases as per your system's behavior
-        
-        // End of simulation after a certain period
-        #100;
-        $finish;
-    end
     
     // Optional: Monitor signals and display them during simulation
     initial begin
-        $monitor("At time %t, SEG_SELECT = %b, LED = %b, LED_LIGHTS = %h, BUS_DATA = %h, BUS_ADDR = %h", 
-                 $time, SEG_SELECT, LED, LED_LIGHTS, BUS_DATA, BUS_ADDR);
+        $monitor("At time %t, SEG_SELECT = %b, LED_OUT = %b, LED_LIGHTS = %h, BUS_DATA = %h, BUS_ADDR = %h, BUS_WE = %b", 
+                 $time, SEG_SELECT, LED_OUT, LED_LIGHTS, BUS_DATA, BUS_ADDR, BUS_WE);
     end
 
 endmodule

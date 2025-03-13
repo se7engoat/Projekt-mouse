@@ -24,14 +24,14 @@ module Processor_tb;
     // Inputs
     reg CLK;
     reg RESET;
-    reg [1:0] BUS_INTERRUPTS_RAISE;
+    reg [1:0] BUS_INTERRUPT_RAISE;
 
     // Outputs
     wire [7:0] BUS_ADDR;
     wire BUS_WE;
     wire [7:0] ROM_ADDRESS;
     wire [7:0] BUS_DATA; // Tristate output
-    wire [1:0] BUS_INTERRUPTS_ACK;
+    wire [1:0] BUS_INTERRUPT_ACK;
 
     // ROM Data
     reg [7:0] ROM_DATA;
@@ -45,8 +45,8 @@ module Processor_tb;
         .BUS_WE(BUS_WE),
         .ROM_ADDRESS(ROM_ADDRESS),
         .ROM_DATA(ROM_DATA),
-        .BUS_INTERRUPTS_RAISE(BUS_INTERRUPTS_RAISE),
-        .BUS_INTERRUPTS_ACK(BUS_INTERRUPTS_ACK)
+        .BUS_INTERRUPT_RAISE(BUS_INTERRUPT_RAISE),
+        .BUS_INTERRUPT_ACK(BUS_INTERRUPT_ACK)
     );
 
     // Clock generation
@@ -58,7 +58,7 @@ module Processor_tb;
         // Initialize inputs
         CLK = 0;
         RESET = 0;
-        BUS_INTERRUPTS_RAISE = 2'b00;
+        BUS_INTERRUPT_RAISE = 2'b00;
         // Placeholder value for ROM data
         //It is also the init state of the processor SM after a reset.
         ROM_DATA = 8'hFF;  
@@ -78,7 +78,7 @@ module Processor_tb;
         end
 
         // Test 2: Raise an interrupt and check for thread start address
-        BUS_INTERRUPTS_RAISE = 2'b01;  // Raise interrupt A
+        BUS_INTERRUPT_RAISE = 2'b01;  // Raise interrupt A
         #10;
         if (uut.CurrState != 8'hF1) begin
             $display("Test 2 Failed: Expected state 8'hF1 (GET_THREAD_START_ADDR_0), got %h", uut.CurrState);
@@ -96,7 +96,7 @@ module Processor_tb;
         end
 
         // Test 4: Simulate another interrupt to check if the processor responds accordingly
-        BUS_INTERRUPTS_RAISE = 2'b10;  // Raise interrupt B
+        BUS_INTERRUPT_RAISE = 2'b10;  // Raise interrupt B
         #10;
         if (uut.CurrState != 8'hF1) begin
             $display("Test 4 Failed: Expected state 8'hF1 (GET_THREAD_START_ADDR_0), got %h", uut.CurrState);

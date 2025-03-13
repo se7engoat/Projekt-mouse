@@ -30,7 +30,7 @@ module TopModule(
     
     //Seven Segment
     output [3:0] SEG_SELECT,
-    output [7:0] LED,
+    output [7:0] LED_OUT,
     
     //LEDs
     output [15:0] LED_LIGHTS
@@ -43,8 +43,8 @@ module TopModule(
     wire BUS_WE;
     
     //Interrupt bus
-    wire [1:0] BUS_INTERRUPTS_ACK;
-    wire [1:0] BUS_INTERRUPTS_RAISE;
+    wire [1:0] BUS_INTERRUPT_ACK;
+    wire [1:0] BUS_INTERRUPT_RAISE;
 
     //Instruction bus
     wire [7:0] ROM_ADDRESS;
@@ -59,8 +59,8 @@ module TopModule(
         .BUS_WE(BUS_WE),
         .ROM_ADDRESS(ROM_ADDRESS),
         .ROM_DATA(ROM_DATA),
-        .BUS_INTERRUPTS_RAISE(BUS_INTERRUPTS_RAISE),
-        .BUS_INTERRUPTS_ACK(BUS_INTERRUPTS_ACK)
+        .BUS_INTERRUPT_RAISE(BUS_INTERRUPT_RAISE),
+        .BUS_INTERRUPT_ACK(BUS_INTERRUPT_ACK)
     );
     
     
@@ -116,7 +116,7 @@ module TopModule(
         .BUS_DATA(BUS_DATA),
         .BUS_ADDR(BUS_ADDR),
         .BUS_WE(BUS_WE),
-        .LEDs(LED_LIGHTS)
+        .LED_LIGHTS(LED_LIGHTS)
     );
     
     
