@@ -271,11 +271,11 @@ module Processor(
             //CHOOSE_OPP - Another case statement to choose which operation to perform
             CHOOSE_OPP: begin
                 case (ProgMemoryOut[3:0])
-                    4'h0: NextState = READ_FROM_MEM_TO_A; // xxxx 0000
-                    4'h1: NextState = READ_FROM_MEM_TO_B; // xxxx 0001
-                    4'h2: NextState = WRITE_TO_MEM_FROM_A; // xxxx 0010
-                    4'h3: NextState = WRITE_TO_MEM_FROM_B; // xxxx 0011
-                    4'h4: NextState = DO_MATHS_OPP_SAVE_IN_A; // xxxx 0100
+                    4'h0: NextState = READ_FROM_MEM_TO_A; // 0x00
+                    4'h1: NextState = READ_FROM_MEM_TO_B; // 0x01
+                    4'h2: NextState = WRITE_TO_MEM_FROM_A; // 0x02
+                    4'h3: NextState = WRITE_TO_MEM_FROM_B; // 0x03
+                    4'h4: NextState = DO_MATHS_OPP_SAVE_IN_A; // 0x04
                     4'h5: NextState = DO_MATHS_OPP_SAVE_IN_B; // xxxx 0101
                     4'h6: NextState = IF_A_EQUALITY_B_GOTO; // xxxx  0110
                     4'h7: NextState = GOTO; // xxxx 0111
