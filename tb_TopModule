@@ -85,14 +85,8 @@ module TopModule_tb;
             
             // Reset the write enable
             BUS_WE = 0;
-            
-//            // Test case 3: Simulate mouse input signal change
-//            // Change mouse data signal
-//            DATA_MOUSE = 1;  // Simulate mouse data being set
-//            #10;
-//            DATA_MOUSE = 0;  // Reset the mouse data
-//            #10;
-    
+            #10;
+
             // Test case 4: Simulate Interrupt Raise and Acknowledge for Timer
             // Raise interrupt for the Timer module
             BUS_INTERRUPT_RAISE = 2'b01; // Set interrupt for Timer
@@ -101,14 +95,37 @@ module TopModule_tb;
             // Acknowledge the interrupt for Timer
             BUS_INTERRUPT_ACK = 2'b01; // Set interrupt acknowledge for Timer
             #10;
+
+            if (BUS_INTERRUPT_RAISE) begin
+                if (BUS_INTERRUPT_ACK) begin
+                    $display("Test case 4 passed: BUS_INTERRUPT_RAISE %h and BUS_INTERRUPT_ACK %h held and passing", BUS_INTERRUPT_RAISE, BUS_INTERRUPT_ACK);
+                end else begin
+                    $display("Test case 4 failed: BUS_INTERRUPT_ACK %h not held and failing", BUS_INTERRUPT_ACK);
+                end
+            end else begin
+                $display("Test case 4 failed: BUS_INTERRUPT_RAISE %h not held and failing", BUS_INTERRUPT_RAISE);
+            end
+
             
             // Clear the interrupt raise and ack signals
             BUS_INTERRUPT_RAISE = 2'b00; 
             BUS_INTERRUPT_ACK = 2'b00;
             #10;
+
+            if (!BUS_INTERRUPT_RAISE) begin
+                if (!BUS_INTERRUPT_ACK) begin
+                    $display("Test case 4 passed: BUS_INTERRUPT_RAISE %h and BUS_INTERRUPT_ACK %h cleared", BUS_INTERRUPT_RAISE, BUS_INTERRUPT_ACK);
+                end else begin
+                    $display("Test case 4 failed: BUS_INTERRUPT_ACK %h not cleared", BUS_INTERRUPT_ACK);
+                end
+            end else begin
+                $display("Test case 4 failed: BUS_INTERRUPT_RAISE %h not cleared", BUS_INTERRUPT_RAISE);
+            end
+
+
             
             // Test case 5: Write to LED (e.g., turn on LED 0xFF)
-            BUS_ADDR = 8'h20;  // Assuming address 0x20 controls the LED
+            BUS_ADDR = 8'hC0;  // address 0xC0 controls the LED
             BUS_DATA = 8'hFF;  // Arbitrary data to turn on LEDs
             BUS_WE = 1;        // Write enable
             #10;               // Wait for a small amount of time
@@ -121,8 +138,8 @@ module TopModule_tb;
             end
             
             // Test case 6: Simulate Seven Segment Display update
-            // Writing a value to the segment display (assuming address for SEG is 0x30)
-            BUS_ADDR = 8'h30;  // Address for seven-segment display
+            // Writing a value to the segment display (address for SEG is 0xD0)
+            BUS_ADDR = 8'hD0;  // Address for seven-segment display
             BUS_DATA = 8'h01;  // Example data to display (for example, showing "1")
             BUS_WE = 1;        // Write enable
             #10;
