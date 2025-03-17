@@ -155,56 +155,6 @@ end
                               .SEND_INTERRUPT(SendInterrupt)
   );
  
-/* 4th march commenting 
-    //for DOT_IN functionality
-    reg dot_toggle;
-	reg [7:0] prev_MouseZ;
-
-	always @(posedge CLK or posedge RESET) begin
-		if (RESET) begin
-			dot_toggle <= 0;
-			prev_MouseZ <= MouseZ;
-		end
-		else begin
-			// If MouseZ changes (scroll wheel moved), toggle the decimal point
-			if (MouseZ != prev_MouseZ) begin
-				dot_toggle <= ~dot_toggle;
-				prev_MouseZ <= MouseZ;  // Update previous MouseZ value
-			end
-		end
-	end
-
-	// Signals for Seven-Segment Display
-	wire [3:0] bin_to_display;
-	wire [3:0] seg_select_out;
-	wire [7:0] hex_out;
-	reg [1:0] seg_select_counter;
-
-	// Display switching to alternate between MouseX and MouseY
-	always @(posedge CLK or posedge RESET) begin
-    if (RESET)
-        seg_select_counter <= 2'b00;
-    else
-        seg_select_counter <= seg_select_counter + 1'b1;
-	end
-
-	// Seven segment switches between MouseX and MouseY every cycle
-	assign bin_to_display = (seg_select_counter[0] == 0) ? MouseX[3:0] : MouseY[3:0];
-
-	// Instantiate the Seven-Segment Decoder
-	SevenSegment seg_display (
-		.SEG_SELECT_IN(seg_select_counter),  // Cycles through display digits
-		.BIN_IN(bin_to_display),             // Switches between MouseX and MouseY
-		.DOT_IN(dot_toggle),             	 // DOT_IN toggles when the MouseZ, Scrollwheel is spun
-    	.SEG_SELECT_OUT(seg_select_out),     // Selected digit
-    	.HEX_OUT(hex_out)                    // 7-segment encoded output
-	);
-
-	// Connect outputs to module outputs
-	assign SEG_SELECT = seg_select_out; //selects which segment to be lit
-	assign HEX_OUT = hex_out; //pattern to be displayed on each segment
-
-*/
 
 	//Pre-processing - handling of overflow and signs.
 	//More importantly, this keeps tabs on the actual X/Y

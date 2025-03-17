@@ -35,17 +35,17 @@ module MouseMasterSM(
 	//Data Registers
 	output [7:0] 	MOUSE_DX,
 	output [7:0] 	MOUSE_DY,
-	output [7:0]	MOUSE_DZ, //Scroll register
+	output [7:0]	MOUSE_DZ,
 	output [7:0] 	MOUSE_STATUS,
 	output 			SEND_INTERRUPT
 
     );
-	reg [5:0] Curr_State, Next_State; //maybe change msb to 7 if it doesnt work
+	reg [5:0] Curr_State, Next_State;
 	reg [23:0] Curr_Counter, Next_Counter;
 
 	//Transmitter Control
 	reg Curr_SendByte, Next_SendByte;
-	reg [7:0] Curr_ByteToSend, Next_ByteToSend;
+	reg [7:0] 	Curr_ByteToSend, Next_ByteToSend;
 
 	//Receiver Control
 	reg Curr_ReadEnable, Next_ReadEnable;
@@ -127,16 +127,17 @@ module MouseMasterSM(
 	//Combinatorial
 	always @(*) 
 		begin
-			Next_State = Curr_State;
-			Next_Counter = Curr_Counter;
-			Next_SendByte = 1'b0;
-			Next_ByteToSend = Curr_ByteToSend;
-			Next_ReadEnable = 1'b0;
-			Next_Status = Curr_Status;
-			Next_Dx = Curr_Dx;
-			Next_Dy = Curr_Dy;
-			Next_Dz	= Curr_Dz;
-			Next_SendInterrupt = 1'b0;
+			Next_State 					= Curr_State;
+			Next_Counter 				= Curr_Counter;
+			Next_SendByte 				= 1'b0;
+			Next_ByteToSend 			= Curr_ByteToSend;
+			Next_ReadEnable 			= 1'b0;
+			Next_Status 				= Curr_Status;
+			Next_Dx 						= Curr_Dx;
+			Next_Dy 						= Curr_Dy;
+			Next_Dz						= Curr_Dz;
+			Next_SendInterrupt 		= 1'b0;
+			Next_Intellimouse_Mode	= Curr_Intellimouse_Mode;
 			
 			case(Curr_State)
 				//Initialise State - Wait here for 10ms before trying to initialise the mouse.
@@ -145,11 +146,11 @@ module MouseMasterSM(
 						Next_Intellimouse_Mode 	= 0;
 						if(Curr_Counter == 5000000)
 							begin // 1/100th sec at 50MHz clock
-								Next_State = SEND_FF;
-								Next_Counter = 0;
+								Next_State 			= SEND_FF;
+								Next_Counter 		= 0;
 							end 
 						else	
-							Next_Counter = Curr_Counter + 1'b1;
+							Next_Counter 			= Curr_Counter + 1'b1;
 					end
 					//Start initialisation by sending FF
 				SEND_FF: 

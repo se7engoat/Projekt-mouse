@@ -27,12 +27,12 @@ module SevenSegmentWrapper(
         output [3:0] SEG_SELECT
     );
     
-    // Define trigger output, strobe output and mutiplexer output
+    // Defining trigger output, strobe output and mutiplexer output
     wire Bit17TrigOut;
     wire [1:0] StrobeCount;
     wire [3:0] MuxOut;
     
-    //Instantiate a 17 bit counter. This will provide a refresh rate of 1kHz for the 7 seg display.
+    //Instantiating a 17 bit counter. This will provide a refresh rate of 1kHz for the 7 seg display.
     // (On board clock is 100MHz) 
     GenericCounter # (
         .COUNTER_WIDTH(17),
@@ -45,8 +45,8 @@ module SevenSegmentWrapper(
         .TRIG_OUT(Bit17TrigOut)
     );
     
-    //Instantiate a 2 bit counter. This counter will provide the strobe output to
-    // select one out of the 4 available seven segment displays to be currently displayed
+    //Instantiating a 2 bit counter. This counter will provide the strobe output to
+    // select one of the 4 available 7 segment displays to be currently displayed
     // at a refresh rate of 1kHz (Obtained from the trigger output of the 17 bit counter).
     GenericCounter # (
         .COUNTER_WIDTH(2),
@@ -59,7 +59,7 @@ module SevenSegmentWrapper(
         .COUNT(StrobeCount)
     );
     
-    // Instantiate a multiplexer. This will output one of the 4 hex digits, corresponding
+    // Instantiating a multiplexer. This will output one of the 4 hex digits, corresponding
     // to the mouse coordinates, depending on the strobe output value.
     MUX Mux(
         .CONTROL(StrobeCount),
