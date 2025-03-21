@@ -26,6 +26,10 @@ module tb_Processor;
     );
     
 
+    //clk timeperiod is 50Hz so that should be 20ns. 
+    //ONE CLK CYCLE - 20ns. For most of the operations here were are waiting for 2 clock cycles for the instructions to get implemented
+    //thus the wait period should be #40 for two full clocks
+    
     //this can be a task that can be used for maybe a load and store function
     //LOAD instruction
     task readFromMemory(int A, int B);
