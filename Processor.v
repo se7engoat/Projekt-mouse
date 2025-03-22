@@ -32,8 +32,8 @@ module Processor(
     output [7:0] ROM_ADDRESS,
     input [7:0] ROM_DATA,
     // INTERRUPT signals
-    input [1:0] BUS_INTERRUPTS_RAISE,
-    output [1:0] BUS_INTERRUPTS_ACK
+    input [1:0] BUS_INTERRUPT_RAISE,
+    output [1:0] BUS_INTERRUPT_ACK
 );
     //The main data bus is treated as tristate, so we need a mechanism to handle this.
     //Tristate signals that interface with the main state machine
@@ -62,7 +62,7 @@ module Processor(
 
     //Dedicated Interrupt output lines - one for each interrupt line
     reg [1:0] CurrInterruptAck, NextInterruptAck;
-    assign BUS_INTERRUPTS_ACK = CurrInterruptAck;
+    assign BUS_INTERRUPT_ACK = CurrInterruptAck;
 
 
     //Instantiate program memory here - ROM
@@ -237,11 +237,11 @@ module Processor(
             ///////////////////////////////////////////////////////////////////////////////////////
             //Thread states.
             IDLE: begin
-                if(BUS_INTERRUPTS_RAISE[0]) begin // Interrupt Request A.
+                if(BUS_INTERRUPT_RAISE[0]) begin // Interrupt Request A.
                     NextState = GET_THREAD_START_ADDR_0; //WAIT
                     NextProgCounter = INIT_INSTRUCTION_POST_RESET; //8'hFF
                     NextInterruptAck = 2'b01;
-                end else if(BUS_INTERRUPTS_RAISE[1]) begin //Interrupt Request B.
+                end else if(BUS_INTERRUPT_RAISE[1]) begin //Interrupt Request B.
                     NextState = GET_THREAD_START_ADDR_0;
                     NextProgCounter = 8'hFE;
                     NextInterruptAck = 2'b10;
@@ -416,15 +416,6 @@ module Processor(
             IF_A_EQUALITY_B_GOTO_1:
                 NextState = CHOOSE_OPP;
 
-            // The below states do the same job, can be removed and made into the same as above.
-            // BRANCH_BREQ_ADDR: begin
-            //     CurrProgCounter = ProgMemoryOut;
-            // end
-            // BRANCH_BGTQ_ADDR:
-            //     CurrProgCounter = ProgMemoryOut;
-            // BRANCH_BLTQ_ADDR:
-            //     CurrProgCounter = ProgMemoryOut;
-
             GOTO: //need min 2 cycles for next instr to load    
                 NextState = CHOOSE_OPP;
                 
@@ -488,15 +479,5 @@ module Processor(
     end
 
 
-    // Testbench outputs assignment
-    /*
-    assign Current_State = CurrState;
-    assign Next_State = NextState;
-    assign Current_PC = CurrProgCounter;
-    assign Next_PC = NextProgCounter;
-    assign Curr_PC_offset = CurrProgCounterOffset;
-    assign Current_Register_A = CurrRegA;
-    assign Current_Register_B = CurrRegB;
-    assign ALU_OUT = AluOut;
-    */
+   
 endmodule

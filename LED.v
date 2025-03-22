@@ -27,7 +27,7 @@ module BusInterfaceLED(
         inout [7:0] BUS_DATA,
         output [7:0] BUS_ADDR,
         output BUS_WE,
-        output reg [15:0] LEDs
+        output reg [15:0] LED_LIGHTS
     );
     
     parameter BaseAddr = 8'hC0;
@@ -46,8 +46,8 @@ module BusInterfaceLED(
     
     reg [7:0] Memory [(2**AddrWidth)-1:0]; 
     always @(posedge CLK) begin
-        LEDs[15:8] <= Memory[0];
-        LEDs[7:0] <= Memory[1];
+        LED_LIGHTS[15:8] <= Memory[0];
+        LED_LIGHTS[7:0] <= Memory[1];
         
         if (BUS_ADDR >= BaseAddr & BUS_ADDR < BaseAddr + (2**AddrWidth)) begin
             if (BUS_WE) begin

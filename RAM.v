@@ -43,9 +43,10 @@ assign BufferedBusData = BUS_DATA;
 //Memory
 reg [7:0] Mem [(2**RAMAddrWidth)-1:0];
 
+
 // Initialise the memory for data preloading, initialising variables, and declaring constants
-// The file's path should be the absolute path.
-initial $readmemh("Complete_Demo_RAM.txt", Mem);
+initial $readmemh("/home/s2736992/Desktop/Projekt-mouse/Complete_Demo_RAM.txt", Mem);
+//initial $readmemh("/home/s2736992/Desktop/Projekt-mouse/RAM_testing.txt", Mem);
 
 //single port ram 
 always @(posedge CLK) begin

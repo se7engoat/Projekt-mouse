@@ -71,7 +71,6 @@ module tb_MouseMasterSM;
         assert(SEND_INTERRUPT === 1'b0);
 
         // Case 2 - Test state transitions and edge cases
-
         // Reset state
         RESET = 1;
         // Wait for reset to stabilize

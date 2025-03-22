@@ -40,23 +40,22 @@ module MouseMasterSM(
 	output 			SEND_INTERRUPT
 
     );
-	reg [5:0] 	Curr_State, Next_State;
-	reg [23:0] 	Curr_Counter, Next_Counter;
+	reg [5:0] Curr_State, Next_State;
+	reg [23:0] Curr_Counter, Next_Counter;
 
 	//Transmitter Control
-	reg 			Curr_SendByte, Next_SendByte;
+	reg Curr_SendByte, Next_SendByte;
 	reg [7:0] 	Curr_ByteToSend, Next_ByteToSend;
 
 	//Receiver Control
-	reg 			Curr_ReadEnable, Next_ReadEnable;
+	reg Curr_ReadEnable, Next_ReadEnable;
 
 	//Data Registers
 	reg [7:0] 	Curr_Status, Next_Status;
 	reg [7:0] 	Curr_Dx, Next_Dx;
 	reg [7:0] 	Curr_Dy, Next_Dy;
 	reg [7:0]	Curr_Dz, Next_Dz;
-	reg 			Curr_SendInterrupt, Next_SendInterrupt;
-	reg 			Curr_Intellimouse_Mode, Next_Intellimouse_Mode;
+	reg Curr_SendInterrupt, Next_SendInterrupt;
 
 	//Sequential
 	always@(posedge CLK)
@@ -73,7 +72,6 @@ module MouseMasterSM(
 					Curr_Dy 						<= 8'h00;
 					Curr_Dz						<= 8'h00;
 					Curr_SendInterrupt 		<= 1'b0;
-					Curr_Intellimouse_Mode	<= 0;
 				end
 			else 
 				begin
@@ -87,7 +85,6 @@ module MouseMasterSM(
 					Curr_Dy 						<= Next_Dy;
 					Curr_Dz						<= Next_Dz;
 					Curr_SendInterrupt 		<= Next_SendInterrupt;
-					Curr_Intellimouse_Mode	<= Next_Intellimouse_Mode;
 				end
 		end
 	

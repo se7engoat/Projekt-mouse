@@ -29,8 +29,8 @@ module BusInterfaceSevenSegment(
     inout [7:0] BUS_ADDR,
     inout [7:0] BUS_DATA,
     inout BUS_WE,
-    output BUS_INTERRUPT_RAISE,
-    input BUS_INTERRUPT_ACK,
+    // output BUS_INTERRUPT_RAISE,
+    // input BUS_INTERRUPT_ACK,
     
     //IO signals
     output SEG_SELECT,
@@ -63,8 +63,9 @@ module BusInterfaceSevenSegment(
     reg [7:0] Memory [(2**AddrWidth) - 1:0];
     
     always @(posedge CLK) begin
-        segment7[7:0] <= Memory[0];
-        segment7[15:8] <= Memory[1];
+        //dumping values from the memory into segments
+        segment7[7:0] <= Memory[0]; //Last two segments
+        segment7[15:8] <= Memory[1]; //First two segments
         
         //Check target device
         if ((BUS_ADDR >= BaseAddr) && (BUS_ADDR < BaseAddr + (2**AddrWidth))) begin

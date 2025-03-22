@@ -23,24 +23,34 @@
 module TopModule(
     input CLK,
     input RESET,
-    inout CLK_MUOSE,
+
+    //mouse
+    inout CLK_MOUSE,
     inout DATA_MOUSE,
     
+    //Seven Segment
     output [3:0] SEG_SELECT,
-    output [7:0] LED,
+    output [7:0] LED_OUT,
     
+    //LEDs
     output [15:0] LED_LIGHTS
     
-    
     );
+
+    //IO bus
     wire [7:0] BUS_DATA;
     wire [7:0] BUS_ADDR;
     wire BUS_WE;
     
-    wire [1:0] BUS_INTERRUPTS_ACK;
-    wire [1:0] BUS_INTERRUPTS_RAISE;
+    //Interrupt bus
+    wire [1:0] BUS_INTERRUPT_ACK;
+    wire [1:0] BUS_INTERRUPT_RAISE;
+
+    //Instruction bus
     wire [7:0] ROM_ADDRESS;
     wire [7:0] ROM_DATA;
+
+
     Processor CPU (
         .CLK(CLK),
         .RESET(RESET),
@@ -49,8 +59,8 @@ module TopModule(
         .BUS_WE(BUS_WE),
         .ROM_ADDRESS(ROM_ADDRESS),
         .ROM_DATA(ROM_DATA),
-        .BUS_INTERRUPTS_RAISE(BUS_INTERRUPTS_RAISE),
-        .BUS_INTERRUPTS_ACK(BUS_INTERRUPTS_ACK)
+        .BUS_INTERRUPT_RAISE(BUS_INTERRUPT_RAISE),
+        .BUS_INTERRUPT_ACK(BUS_INTERRUPT_ACK)
     );
     
     
@@ -73,8 +83,8 @@ module TopModule(
         .BUS_DATA(BUS_DATA),
         .BUS_ADDR(BUS_ADDR),
         .BUS_WE(BUS_WE),
-        .BUS_INTERRUPT_RAISE(BUS_INTERRUPT_RAISE),
-        .BUS_INTERRUPT_ACK(BUS_INTERRUPT_ACK)
+        .BUS_INTERRUPT_RAISE(BUS_INTERRUPT_RAISE[1]),
+        .BUS_INTERRUPT_ACK(BUS_INTERRUPT_ACK[1])
     );
     
     BusInterfaceSevenSegment SevenSegment(
@@ -82,8 +92,8 @@ module TopModule(
         .BUS_ADDR(BUS_ADDR),
         .BUS_DATA(BUS_DATA),
         .BUS_WE(BUS_WE),
-        .BUS_INTERRUPT_RAISE(BUS_INTERRUPT_RAISE),
-        .BUS_INTERRUPT_ACK(BUS_INTERRUPT_ACK),
+        // .BUS_INTERRUPT_RAISE(BUS_INTERRUPT_RAISE),
+        // .BUS_INTERRUPT_ACK(BUS_INTERRUPT_ACK),
         .SEG_SELECT(SEG_SELECT),
         .LED_OUT(LED_OUT)
     );
@@ -96,8 +106,8 @@ module TopModule(
         .BUS_WE(BUS_WE),  
         .CLK_MOUSE(CLK_MOUSE),    
         .DATA_MOUSE(DATA_MOUSE), 
-        .BUS_INTERRUPT_RAISE(BUS_INTERRUPT_RAISE),
-        .BUS_INTERRUPT_ACK(BUS_INTERRUPT_ACK)
+        .BUS_INTERRUPT_RAISE(BUS_INTERRUPT_RAISE[0]),
+        .BUS_INTERRUPT_ACK(BUS_INTERRUPT_ACK[0])
     );
     
     
@@ -106,7 +116,7 @@ module TopModule(
         .BUS_DATA(BUS_DATA),
         .BUS_ADDR(BUS_ADDR),
         .BUS_WE(BUS_WE),
-        .LEDs(LED_LIGHTS)
+        .LED_LIGHTS(LED_LIGHTS)
     );
     
     
