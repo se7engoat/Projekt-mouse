@@ -45,13 +45,14 @@ module MouseTransmitter(
 		clkMouseInDly <= CLK_MOUSE_IN;
 		
 	//Now a state machine to control the flow of write data
-	reg [3:0] presentState, nextState;
-	reg presentMouseClkOutWE, nextMouseClkOutWE;
-	reg presentMouseDataOut, nextMouseDataOut;
-	reg presentMouseDataOutWE, nextMouseDataOutWE;
-	reg [15:0] presentSendCounter, nextSendCounter;
-	reg presentByteSent, nextByteSent;
-	reg [7:0] presentByteToSend, nextByteToSend;
+	reg [3:0] currentState, nextState;
+	reg currentMouseClkOutWE, nextMouseClkOutWE;
+	reg currentMouseDataOut, nextMouseDataOut;
+	reg currentMouseDataOutWE, nextMouseDataOutWE;
+	reg [15:0] currentSendCounter, nextSendCounter;
+	reg currentByteSent, nextByteSent;
+	reg [7:0] currentByteToSend, nextByteToSend;
+	
 	parameter IDLE = 4'b0000, CLK_LINE_LOW = 4'b0001, DATA_LINE_LOW = 4'b0010, START_SEND = 4'b0011, SEND_BYTE_TX = 4'b0100, 
 	SEND_PARITY = 4'b0101, SEND_STOP_BIT = 4'b0110, RELEASE_DATA_LINE = 4'b0111, CHECK_DATA_MOUSE_IN = 4'b1000, CHECK_CLK_MOUSE_IN = 4'b1001, CHECK_DATA_CLK_MOUSE_IN = 4'b1010;
 
@@ -60,23 +61,23 @@ module MouseTransmitter(
 		begin
 			if(RESET) 
 				begin
-					presentState <= 4'b0;
-					presentMouseClkOutWE <= 1'b0;
-					presentMouseDataOut <= 1'b0;
-					presentMouseDataOutWE <= 1'b0;
-					presentSendCounter <= 0;
-					presentByteSent <= 1'b0;
-					presentByteToSend <= 0;
+					currentState <= 4'b0;
+					currentMouseClkOutWE <= 1'b0;
+					currentMouseDataOut <= 1'b0;
+					currentMouseDataOutWE <= 1'b0;
+					currentSendCounter <= 0;
+					currentByteSent <= 1'b0;
+					currentByteToSend <= 0;
 				end
 			else
 				begin
-					presentState <= nextState;
-					presentMouseClkOutWE <= nextMouseClkOutWE;
-					presentMouseDataOut <= nextMouseDataOut;
-					presentMouseDataOutWE <= nextMouseDataOutWE;
-					presentSendCounter <= nextSendCounter;
-					presentByteSent <= nextByteSent;
-					presentByteToSend <= nextByteToSend;
+					currentState <= nextState;
+					currentMouseClkOutWE <= nextMouseClkOutWE;
+					currentMouseDataOut <= nextMouseDataOut;
+					currentMouseDataOutWE <= nextMouseDataOutWE;
+					currentSendCounter <= nextSendCounter;
+					currentByteSent <= nextByteSent;
+					currentByteToSend <= nextByteToSend;
 				end
 		end
 	
@@ -86,21 +87,21 @@ module MouseTransmitter(
 	always@(*) 
 		begin
 			// default values
-			nextState = presentState;
+			nextState = currentState;
 			nextMouseClkOutWE = 1'b0;
 			nextMouseDataOut = 1'b0;
-			nextMouseDataOutWE = presentMouseDataOutWE;
-			nextSendCounter = presentSendCounter;
+			nextMouseDataOutWE = currentMouseDataOutWE;
+			nextSendCounter = currentSendCounter;
 			nextByteSent = 1'b0;
-			nextByteToSend = presentByteToSend;
+			nextByteToSend = currentByteToSend;
 			
-			case(presentState)
+			case(currentState)
 				//IDLE
 				IDLE: 
 					begin
 						if(SEND_BYTE) 
 							begin
-								nextState = 1;
+								nextState = CLK_LINE_LOW;
 								nextByteToSend = BYTE_TO_SEND;
 							end
 						nextMouseDataOutWE = 1'b0;
@@ -108,68 +109,63 @@ module MouseTransmitter(
 				//Bring Clock line low for at least 100 microsecs i.e. 5000 clock cycles @ 50MHz
 				CLK_LINE_LOW: 
 					begin
-							if(presentSendCounter == 6000)
+							if(currentSendCounter == 6000)
 								begin
-									nextState = 2;
+									nextState = DATA_LINE_LOW;
 									nextSendCounter = 0;
 								end
 							else
-								nextSendCounter = presentSendCounter + 1'b1;
+								nextSendCounter = currentSendCounter + 1'b1;
 								
 							nextMouseClkOutWE = 1'b1;
 					end
 				//Bring the Data Line Low and release the Clock line
 				DATA_LINE_LOW: 
 					begin
-						nextState = 3;
+						nextState = START_SEND;
 						nextMouseDataOutWE = 1'b1;
 					end
 				//Start Sending
 				START_SEND: 
 					begin // change data at falling edge of clock, start bit = 0
 						if(clkMouseInDly & ~CLK_MOUSE_IN)
-						//(~clkMouseInDly & CLK_MOUSE_IN) use this if the clk edge is in pos edge
-							nextState = 4;
+							nextState = SEND_BYTE;
 					end
 				//Send Bits 0 to 7 - We need to send the byte
 				SEND_BYTE: 
 					begin // change data at falling edge of clock
 						if(clkMouseInDly & ~CLK_MOUSE_IN)
-						//(~clkMouseInDly & CLK_MOUSE_IN) use this if clk edge is in pos edge
 							begin
-								if(presentSendCounter == 7) 
+								if(currentSendCounter == 7) 
 									begin
-										nextState = 5;
+										nextState = SEND_PARITY;
 										nextSendCounter = 0;
 									end 
 								else
-									nextSendCounter = presentSendCounter + 1'b1;
+									nextSendCounter = currentSendCounter + 1'b1;
 						end
 						
-						nextMouseDataOut = presentByteToSend[presentSendCounter];
+						nextMouseDataOut = currentByteToSend[currentSendCounter];
 					end
 				//Send the parity bit
 				SEND_PARITY:
 					begin // change data at falling edge of clock
 						if(clkMouseInDly & ~CLK_MOUSE_IN)
-						//(~clkMouseInDly & CLK_MOUSE_IN)
-							nextState = 6;
+							nextState = SEND_STOP_BIT;
 							
-						nextMouseDataOut = ~^presentByteToSend[7:0];
+						nextMouseDataOut = ~^currentByteToSend[7:0];
 					end
-				//Send the stop bit... this state was forgotten in the original partial code
+				//Send the stop bit
 				SEND_STOP_BIT: 
 					begin 
 						if(clkMouseInDly & ~CLK_MOUSE_IN)
-						// (~clkMouseInDly & CLK_MOUSE_IN)
-							nextState = 7;
-							
+							nextState = RELEASE_DATA_LINE;
 						nextMouseDataOut = 1'b1;
 					end
 				//Release Data line
 				RELEASE_DATA_LINE: 
 					begin
-						nextState = 8;
+						nextState = CHECK_DATA_MOUSE_IN;
 						nextMouseDataOutWE = 1'b0;
 					end
 				/*
@@ -178,36 +174,45 @@ module MouseTransmitter(
 				*/
 				CHECK_DATA_MOUSE_IN: 
 					begin
-						if(!DATA_MOUSE_IN) // returns to S7 if data line not pulled low by mouse
-							nextState = 9;
+						if(~DATA_MOUSE_IN) // returns to S7 if data line not pulled low by mouse
+							nextState = CHECK_CLK_MOUSE_IN;
 					end
 					
 				CHECK_CLK_MOUSE_IN: 
 					begin
-						if(!CLK_MOUSE_IN) // returns to S8 if CLK not pulled low by mouse
-							nextState = 10;
+						if(~CLK_MOUSE_IN) // returns to S8 if CLK not pulled low by mouse
+							nextState = CHECK_DATA_CLK_MOUSE_IN;
 					end
 					
 				CHECK_DATA_CLK_MOUSE_IN: 
 					begin
 						if(DATA_MOUSE_IN & CLK_MOUSE_IN) // returns to S9 if data line not released (let rise high) by mouse
 							begin
-								nextState = 0;	// returns to S9 if CLK not released (let rise high) by mouse
+								nextState = IDLE;	// returns to S9 if CLK not released (let rise high) by mouse
 								nextByteSent = 1'b1; // confirms byte was sent out
 							end
-					end				
+					end
+				default: begin
+					Next_State <= IDLE;
+					Next_MouseClkOutWE <= 1'b0;
+					Next_MouseDataOut <= 1'b0;
+					Next_MouseDataOutWE <= 1'b0;
+					Next_SendCounter <= 0;
+					Next_ByteSent <= 1'b0;
+					Next_ByteToSend <= 0;
+            	end				
 			endcase
 		end
 	
 	//Assign OUTPUTs
 	//Mouse IO - CLK
-	assign CLK_MOUSE_OUT_EN = presentMouseClkOutWE;
+	assign CLK_MOUSE_OUT_EN = currentMouseClkOutWE;
 
 	//Mouse IO - DATA
-	assign DATA_MOUSE_OUT = presentMouseDataOut;
-	assign DATA_MOUSE_OUT_EN = presentMouseDataOutWE;
+	assign DATA_MOUSE_OUT = currentMouseDataOut;
+	assign DATA_MOUSE_OUT_EN = currentMouseDataOutWE;
 
 	//Control
-	assign BYTE_SENT = presentByteSent;
+	assign BYTE_SENT = currentByteSent;
 
 endmodule

@@ -46,7 +46,7 @@ module MouseReceiver(
     // Sequential logic
     always @(posedge CLK) begin
         if (RESET) begin
-            currentState       <= 0;
+            currentState       <= 3'b0;
             currentShiftReg    <= 8'h00;
             currentBitCounter <= 0;
             currentByteReady   <= 1'b0;
@@ -78,7 +78,7 @@ module MouseReceiver(
             // IDLE
             IDLE: begin
                 if (READ_ENABLE & clkMouseDelayed & ~CLK_MOUSE_IN & ~DATA_MOUSE_IN) begin
-                    nextState     = 1;
+                    nextState     = 3'b001;
                     nextErrorCode = 2'b00;
                 end
                 nextBitCounter = 0;
@@ -87,11 +87,11 @@ module MouseReceiver(
             // RECEIVE BITS
             RECEIVE: begin
                 if (currentTimeout == 50000)
-                    nextState = 0;
+                    nextState = 3'b0;
                 else if (currentBitCounter == 8) begin
-                    nextState      = 2;
+                    nextState      = 3'b010;
                     nextBitCounter = 0;
-                end else if (clkMouseDelayed & ~CLK_MOUSE_IN) begin
+                end else if (clkMouseDelayed & ~CLK_MOUSE_IN) begin //shift byte in
                     nextShiftReg[6:0] = currentShiftReg[7:1];
                     nextShiftReg[7]  = DATA_MOUSE_IN;
                     nextBitCounter   = currentBitCounter + 1;
@@ -115,22 +115,30 @@ module MouseReceiver(
             // STOP BIT CHECK
             STOP_CHECK: begin
                 if (currentTimeout == 100000)
-                    nextState = 0;
+                    nextState = 3'b0;
                 else if (clkMouseDelayed & ~CLK_MOUSE_IN) begin
-                    nextErrorCode[1] = ~DATA_MOUSE_IN;
-                    nextState       = 4;
+                    if (DATA_MOUSE_IN)
+                        nextErrorCode[1] = 1'b0;
+                    else
+                        nextErrorCode[1] = 1'b0;
+                    
+                    nextState       = 3'b100;
                     nextTimeout     = 0;
                 end
             end
 
             // BYTE READY
             READY: begin
-                nextByteReady = 1'b1;
-                nextState     = 0;
+                if (currentTimeout == 100000) //1ms timeout for 100MHz clock
+                    nextState = 3'b0;
+                if (CLK_MOUSE_IN & DATA_MOUSE_IN) begin
+                    nextByteReady = 1'b1;
+                    nextState     = 3'b0;
+                end
             end
 
             default: begin
-                nextState       = 0;
+                nextState       = 3'b0;
                 nextShiftReg    = 8'h00;
                 nextBitCounter  = 0;
                 nextByteReady   = 1'b0;
