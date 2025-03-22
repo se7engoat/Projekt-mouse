@@ -193,13 +193,13 @@ module MouseTransmitter(
 							end
 					end
 				default: begin
-					Next_State <= IDLE;
-					Next_MouseClkOutWE <= 1'b0;
-					Next_MouseDataOut <= 1'b0;
-					Next_MouseDataOutWE <= 1'b0;
-					Next_SendCounter <= 0;
-					Next_ByteSent <= 1'b0;
-					Next_ByteToSend <= 0;
+					nextState <= IDLE;
+					nextMouseClkOutWE <= 1'b0;
+					nextMouseDataOut <= 1'b0;
+					nextMouseDataOutWE <= 1'b0;
+					nextSendCounter <= 0;
+					nextByteSent <= 1'b0;
+					nextByteToSend <= 0;
             	end				
 			endcase
 		end
