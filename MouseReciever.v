@@ -78,7 +78,7 @@ module MouseReceiver(
             // IDLE
             IDLE: begin
                 if (READ_ENABLE & clkMouseDelayed & ~CLK_MOUSE_IN & ~DATA_MOUSE_IN) begin
-                    nextState     = 3'b001;
+                    nextState     = RECEIVE;
                     nextErrorCode = 2'b00;
                 end
                 nextBitCounter = 0;
@@ -87,9 +87,9 @@ module MouseReceiver(
             // RECEIVE BITS
             RECEIVE: begin
                 if (currentTimeout == 50000)
-                    nextState = 3'b0;
+                    nextState = IDLE;
                 else if (currentBitCounter == 8) begin
-                    nextState      = 3'b010;
+                    nextState      = PARITY_CHECK;
                     nextBitCounter = 0;
                 end else if (clkMouseDelayed & ~CLK_MOUSE_IN) begin //shift byte in
                     nextShiftReg[6:0] = currentShiftReg[7:1];
@@ -102,12 +102,12 @@ module MouseReceiver(
             // PARITY CHECK
             PARITY_CHECK: begin
                 if (currentTimeout == 50000)
-                    nextState = 0;
+                    nextState = IDLE;
                 else if (clkMouseDelayed & ~CLK_MOUSE_IN) begin
                     if (DATA_MOUSE_IN != ~^currentShiftReg[7:0])
                         nextErrorCode[0] = 1'b1;
                     nextBitCounter = 0;
-                    nextState      = 3;
+                    nextState      = STOP_CHECK;
                     nextTimeout    = 0;
                 end
             end
@@ -115,14 +115,14 @@ module MouseReceiver(
             // STOP BIT CHECK
             STOP_CHECK: begin
                 if (currentTimeout == 100000)
-                    nextState = 3'b0;
+                    nextState = IDLE;
                 else if (clkMouseDelayed & ~CLK_MOUSE_IN) begin
                     if (DATA_MOUSE_IN)
                         nextErrorCode[1] = 1'b0;
                     else
                         nextErrorCode[1] = 1'b0;
                     
-                    nextState       = 3'b100;
+                    nextState       = READY;
                     nextTimeout     = 0;
                 end
             end
@@ -130,15 +130,15 @@ module MouseReceiver(
             // BYTE READY
             READY: begin
                 if (currentTimeout == 100000) //1ms timeout for 100MHz clock
-                    nextState = 3'b0;
+                    nextState = IDLE;
                 if (CLK_MOUSE_IN & DATA_MOUSE_IN) begin
                     nextByteReady = 1'b1;
-                    nextState     = 3'b0;
+                    nextState     = IDLE;
                 end
             end
 
             default: begin
-                nextState       = 3'b0;
+                nextState       = IDLE;
                 nextShiftReg    = 8'h00;
                 nextBitCounter  = 0;
                 nextByteReady   = 1'b0;
