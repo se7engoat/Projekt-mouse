@@ -169,50 +169,39 @@ module Processor(
     DE_REFERENCE_2 = 8'h74,
     
     // Load Immediate (Extra Functionality)
-    LOAD_IMMEDIATE_A = 8'h80, // Load immeadiate to register A from instruction
-    LOAD_IMMEDIATE_B = 8'h81, // Load immeadiate to register B from instruction
-    LOAD_IMMEDIATE_0 = 8'h82; //wait for new op address to settle. end op.
+    // LOAD_IMMEDIATE_A = 8'h80, // Load immeadiate to register A from instruction
+    // LOAD_IMMEDIATE_B = 8'h81, // Load immeadiate to register B from instruction
+    // LOAD_IMMEDIATE_0 = 8'h82; //wait for new op address to settle. end op.
 
-
-
-    /*
-    Complete the above parameter list for In/Equality, Goto Address, Goto Idle, function start, Return from
-    function, and Dereference operations.
+    CLK_INTR_ACK = 2'b00;
     
-    ………………..
-    FIL IN THIS AREA
-    ……………….
-    */
-
-
-    parameter CLK_INTR_ACK = 2'b00;
     //Sequential part of the State Machine.
     reg [7:0] CurrState, NextState;
     always@(posedge CLK) begin
         if(RESET) begin
-            CurrState <= 8'h00;
-            CurrProgCounter <= 8'h00;
-            CurrProgCounterOffset <= 2'h0;
-            CurrBusAddr <= INIT_INSTRUCTION_POST_RESET; // 8'hFF Initial instruction after reset.
-            CurrBusDataOut <= 8'h00;
-            CurrBusDataOutWE <= 1'b0;
-            CurrRegA <= 8'h00;
-            CurrRegB <= 8'h00;
-            CurrRegSelect <= 1'b0;
-            CurrProgContext <= 8'h00;
-            CurrInterruptAck <= CLK_INTR_ACK;
+            CurrState = 8'h00;
+            CurrProgCounter = 8'h00;
+            CurrProgCounterOffset = 2'h0;
+            CurrBusAddr = INIT_INSTRUCTION_POST_RESET; // 8'hFF Initial instruction after reset.
+            CurrBusDataOut = 8'h00;
+            CurrBusDataOutWE = 1'b0;
+            CurrRegA = 8'h00;
+            CurrRegB = 8'h00;
+            CurrRegSelect = 1'b0;
+            CurrProgContext = 8'h00;
+            CurrInterruptAck = CLK_INTR_ACK;
         end else begin
-            CurrState <= NextState;
-            CurrProgCounter <= NextProgCounter;
-            CurrProgCounterOffset <= NextProgCounterOffset;
-            CurrBusAddr <= NextBusAddr;
-            CurrBusDataOut <= NextBusDataOut;
-            CurrBusDataOutWE <= NextBusDataOutWE;
-            CurrRegA <= NextRegA;
-            CurrRegB <= NextRegB;
-            CurrRegSelect <= NextRegSelect;
-            CurrProgContext <= NextProgContext;
-            CurrInterruptAck <= NextInterruptAck;
+            CurrState = NextState;
+            CurrProgCounter = NextProgCounter;
+            CurrProgCounterOffset = NextProgCounterOffset;
+            CurrBusAddr = NextBusAddr;
+            CurrBusDataOut = NextBusDataOut;
+            CurrBusDataOutWE = NextBusDataOutWE;
+            CurrRegA = NextRegA;
+            CurrRegB = NextRegB;
+            CurrRegSelect = NextRegSelect;
+            CurrProgContext = NextProgContext;
+            CurrInterruptAck = NextInterruptAck;
         end
     end
 
@@ -355,10 +344,9 @@ module Processor(
                 NextBusAddr = ProgMemoryOut;
                 if(!NextRegSelect)
                     NextBusDataOut = CurrRegA;
-                else begin
+                else
                     NextBusDataOut = CurrRegB;
-                    NextBusDataOutWE = 1'b1;
-                end
+                NextBusDataOutWE = 1'b1;
             end
 
 
@@ -383,15 +371,6 @@ module Processor(
 
             //Wait state for new prog address to settle.
             DO_MATHS_OPP_0: NextState = CHOOSE_OPP;
-            
-            /*
-            Complete the above parameter list for In/Equality, Goto Address, Goto Idle, function start, Return from
-            function, and Dereference operations.
-            */
-            /*
-            FILL IN THIS AREA
-            */
-
 
             //ROM_ADDRESS is the instruction's address on ROM
             //ProgMemoryOut is the address we need to work with
@@ -409,15 +388,15 @@ module Processor(
 
             //branching address is loaded to PC
             IF_A_EQUALITY_B_GOTO_0: begin
-                NextProgCounter = ProgMemoryOut; //Loading address to branch to
                 NextState = IF_A_EQUALITY_B_GOTO_1;
+                NextProgCounter = ProgMemoryOut; //Loading address to branch to
             end
             //Not branching, operation is done
             IF_A_EQUALITY_B_GOTO_1:
                 NextState = CHOOSE_OPP;
 
             GOTO: //need min 2 cycles for next instr to load    
-                NextState = CHOOSE_OPP;
+                NextState = GOTO_0;
                 
             GOTO_0: begin // JUMP to ADDR
                 NextProgCounter = ProgMemoryOut;
@@ -427,6 +406,12 @@ module Processor(
             GOTO_1: //wait for the instruction to be chosen
                 NextState = CHOOSE_OPP;
 
+            //GOTO_IDLE : here the CPU is put into the idle state 
+            // This code is never reached, but it was mentioned in the 'FILL THIS AREA' tasks...
+            GOTO_IDLE: begin
+                NextState = IDLE;
+                NextProgCounter = 8'h00;
+            end 
 
             //Func is called, PC+2 and current contwxt is saved
             FUNCTION_START: begin
