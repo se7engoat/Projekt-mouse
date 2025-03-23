@@ -55,7 +55,6 @@ module tb_MouseMasterSM;
     // Test sequence
     initial begin
         // Case 1 - Test initialization and basic functionality
-        initial begin
         #100;  // Wait for initialization
         $display("Test Case 1: Initialization and Basic Functionality");
         // Check all signals
