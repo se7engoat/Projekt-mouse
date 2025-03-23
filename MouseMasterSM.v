@@ -56,6 +56,7 @@ module MouseMasterSM(
 	reg [7:0] 	Curr_Dy, Next_Dy;
 	reg [7:0]	Curr_Dz, Next_Dz;
 	reg Curr_SendInterrupt, Next_SendInterrupt;
+	reg Curr_Intellimouse_Mode, Next_Intellimouse_Mode;
 
 	//Sequential
 	always@(posedge CLK)
@@ -72,6 +73,8 @@ module MouseMasterSM(
 					Curr_Dy 						<= 8'h00;
 					Curr_Dz						<= 8'h00;
 					Curr_SendInterrupt 		<= 1'b0;
+					Curr_Intellimouse_Mode	<= 0;
+
 				end
 			else 
 				begin
@@ -85,6 +88,7 @@ module MouseMasterSM(
 					Curr_Dy 						<= Next_Dy;
 					Curr_Dz						<= Next_Dz;
 					Curr_SendInterrupt 		<= Next_SendInterrupt;
+					Curr_Intellimouse_Mode	<= Next_Intellimouse_Mode;
 				end
 		end
 	
@@ -439,19 +443,19 @@ module MouseMasterSM(
 							begin
 								if((BYTE_READ == 8'h03) & (BYTE_ERROR_CODE == 2'b00))
 									begin
-										Next_State 					= 31;
+										Next_State = 31;
 										Next_Intellimouse_Mode 	= 1;
 									end	
 								else if ((BYTE_READ == 8'h00) & (BYTE_ERROR_CODE == 2'b00))
 									begin
-										Next_State 					= 31;
+										Next_State = 31;
 										Next_Intellimouse_Mode 	= 0;
 									end
 								else
-									Next_State		= 0;
+									Next_State = INIT;
 							end
 						
-						Next_ReadEnable 			= 1'b1;
+						Next_ReadEnable = 1'b1;
 					end
 
 
@@ -495,14 +499,14 @@ module MouseMasterSM(
 							begin
 								if(BYTE_ERROR_CODE == 2'b00)
 									begin
-										Next_State 					= 32;
-										Next_Status 				= BYTE_READ;	
+										Next_State = 32;
+										Next_Status = BYTE_READ;	
 									end
 								else
-									Next_State 						= INIT;					// actually reinit on corrupted byte
+									Next_State = INIT;	// actually reinit on corrupted byte
 							end			
 
-						Next_ReadEnable 							= 1'b1;
+						Next_ReadEnable = 1'b1;
 					end
 						
 				32:
@@ -511,14 +515,14 @@ module MouseMasterSM(
 							begin
 								if(BYTE_ERROR_CODE == 2'b00)
 									begin
-										Next_State 					= 33;
-										Next_Dx 						= BYTE_READ;
+										Next_State = 33;
+										Next_Dx = BYTE_READ;
 									end
 								else
-									Next_State 						= 0;
+									Next_State = INIT;
 							end
 							
-						Next_ReadEnable 							= 1'b1;
+						Next_ReadEnable = 1'b1;
 					end
 				//Wait for confirmation of a byte being received
 				//This byte will be the third of three, the Dy byte.
@@ -534,16 +538,16 @@ module MouseMasterSM(
 								if(BYTE_ERROR_CODE == 2'b00)
 									begin
 										if(Curr_Intellimouse_Mode)
-											Next_State 				= AWAIT_BYTE_4;
+											Next_State = AWAIT_BYTE_4;
 										else
-											Next_State				= SEND_INTR;
-										Next_Dy 						= BYTE_READ;
+											Next_State = SEND_INTR;
+										Next_Dy = BYTE_READ;
 									end
 								else
-									Next_State 						= 0;
+									Next_State = INIT;
 							end
 							
-						Next_ReadEnable 							= 1'b1;
+						Next_ReadEnable = 1'b1;
 					end
 
 				// Wait for fourth byte in intellimouse mode
@@ -553,35 +557,35 @@ module MouseMasterSM(
 							begin
 								if(BYTE_ERROR_CODE == 2'b00)
 									begin
-										Next_Dz						= BYTE_READ;
-										Next_State					= SEND_INTR;
+										Next_Dz	= BYTE_READ;
+										Next_State = SEND_INTR;
 									end
 								else
-									Next_State 						= INIT;
+									Next_State = INIT;
 							end
 							
-						Next_ReadEnable 							= 1'b1;
+						Next_ReadEnable = 1'b1;
 					end
 
 				//Send Interrupt State
 				SEND_INTR: //35
 				begin
-					Next_State 										= 31;
-					Next_SendInterrupt 							= 1'b1;
+					Next_State = 31;
+					Next_SendInterrupt = 1'b1;
 				end
 
 				//Default State
 				default: begin
-					Next_State 				= 4'h0;
-					Next_Counter 			= 0;
-					Next_SendByte 			= 1'b0;
-					Next_ByteToSend 		= 8'hFF;
-					Next_ReadEnable 		= 1'b0;
-					Next_Status 			= 8'h00;
-					Next_Dx 					= 8'h00;
-					Next_Dy 					= 8'h00;
-					Next_Dz					= 8'h00;
-					Next_SendInterrupt 	= 1'b0;
+					Next_State = INIT;
+					Next_Counter = 0;
+					Next_SendByte = 1'b0;
+					Next_ByteToSend = 8'hFF;
+					Next_ReadEnable = 1'b0;
+					Next_Status = 8'h00;
+					Next_Dx = 8'h00;
+					Next_Dy = 8'h00;
+					Next_Dz	= 8'h00;
+					Next_SendInterrupt = 1'b0;
 				end
 			endcase
 		end
