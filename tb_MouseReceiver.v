@@ -28,7 +28,7 @@ module tb_MouseReceiver;
     always #10 CLK = ~CLK;
 
     // Task for sending a single PS2 bit
-    task sendPS2Bit(input bit data);
+    task sendPS2Bit(input data);
         begin
             #40 CLK_MOUSE_IN = 0; // Falling edge
             DATA_MOUSE_IN = data;
@@ -37,7 +37,7 @@ module tb_MouseReceiver;
     endtask
 
     // Task for sending a full PS2 byte (includes start, parity and stop bits)
-    task sendPS2Byte(input [7:0] dataByte, input bit forcedParityError, input bit forcedStopError);
+    task sendPS2Byte(input [7:0] dataByte, input forcedParityError, input forcedStopError);
         integer i;
         reg parityBit;
         begin
@@ -159,11 +159,11 @@ module tb_MouseReceiver;
         // Case 7: Maximum and Minimum Values
         #200;
         $display("Sending Maximum Value (0xFF)");
-        send_ps2_byte(8'b11111111, 0, 0);
+        sendPS2Byte(8'b11111111, 0, 0);
 
         #200;
         $display("Sending Minimum Value (0x00)");
-        send_ps2_byte(8'b00000000, 0, 0);
+        sendPS2Byte(8'b00000000, 0, 0);
 
         // End of Simulation
         #500;

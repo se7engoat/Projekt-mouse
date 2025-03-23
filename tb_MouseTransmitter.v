@@ -108,7 +108,7 @@ module tb_MouseTransmitter;
         #20 SEND_BYTE = 0;
         $display("Sending Byte with Bit Underflow: 0xF0");
 
-        repeat (5) send_mouse_clock_pulse(); // Send only 5 bits
+        repeat (5) sendMouseClockPulse(); // Send only 5 bits
 
         #200;
         if (!BYTE_SENT)
@@ -123,7 +123,7 @@ module tb_MouseTransmitter;
         #20 SEND_BYTE = 0;
         $display("Sending Byte with Bit Overflow: 0x55");
 
-        repeat (12) send_mouse_clock_pulse(); // Send 12 bits instead of 10
+        repeat (12) sendMouseClockPulse(); // Send 12 bits instead of 10
 
         #200;
         if (!BYTE_SENT)
