@@ -21,12 +21,11 @@
 
 
 module BusInterfaceMouse(
-      //Standard Inputs  
       input RESET,  
       input CLK,  
       //BUS Signals
-      inout [7:0] BUS_ADDR,
-      inout [7:0] BUS_DATA,
+      input [7:0] BUS_ADDR,
+      output [7:0] BUS_DATA,
       input BUS_WE,
       //IO - Mouse side  
       inout CLK_MOUSE,    
@@ -58,7 +57,6 @@ module BusInterfaceMouse(
     
     //Mouse signal to raise an interrupt when it is moved
     reg InterruptRaise;
-    
     always @(posedge CLK) begin
         if (RESET)
             InterruptRaise <= 1'b0; //RESET the InterruptRaise 

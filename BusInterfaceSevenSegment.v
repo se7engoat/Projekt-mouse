@@ -29,9 +29,6 @@ module BusInterfaceSevenSegment(
     inout [7:0] BUS_ADDR,
     inout [7:0] BUS_DATA,
     inout BUS_WE,
-    // output BUS_INTERRUPT_RAISE,
-    // input BUS_INTERRUPT_ACK,
-    
     //IO signals
     output SEG_SELECT,
     output LED_OUT
