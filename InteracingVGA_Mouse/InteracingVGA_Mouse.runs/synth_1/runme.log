@@ -1,0 +1,1003 @@
+
+*** Running vivado
+    with args -log Top.vds -m64 -mode batch -messageDb vivado.pb -notrace -source Top.tcl
+
+
+****** Vivado v2015.2 (64-bit)
+  **** SW Build 1266856 on Fri Jun 26 16:35:25 MDT 2015
+  **** IP Build 1264090 on Wed Jun 24 14:22:01 MDT 2015
+    ** Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+
+source Top.tcl -notrace
+Command: synth_design -top Top -part xc7a35ticpg236-1L
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35ti'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35ti'
+INFO: [Common 17-1223] The version limit for your license is '2015.12' and will expire in -3372 days. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 922.504 ; gain = 152.527 ; free physical = 466 ; free virtual = 25850
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'Top' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/TopModule.v:23]
+INFO: [Synth 8-638] synthesizing module 'Microprocessor' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Microprocessor.v:23]
+	Parameter IDLE bound to: 8'b11110000 
+	Parameter GET_THREAD_START_ADDR_0 bound to: 8'b11110001 
+	Parameter GET_THREAD_START_ADDR_1 bound to: 8'b11110010 
+	Parameter GET_THREAD_START_ADDR_2 bound to: 8'b11110011 
+	Parameter CHOOSE_OPP bound to: 8'b00000000 
+	Parameter READ_FROM_MEM_TO_A bound to: 8'b00010000 
+	Parameter READ_FROM_MEM_TO_B bound to: 8'b00010001 
+	Parameter READ_FROM_MEM_0 bound to: 8'b00010010 
+	Parameter READ_FROM_MEM_1 bound to: 8'b00010011 
+	Parameter READ_FROM_MEM_2 bound to: 8'b00010100 
+	Parameter WRITE_TO_MEM_FROM_A bound to: 8'b00100000 
+	Parameter WRITE_TO_MEM_FROM_B bound to: 8'b00100001 
+	Parameter WRITE_TO_MEM_0 bound to: 8'b00100010 
+	Parameter DO_MATHS_OPP_SAVE_IN_A bound to: 8'b00110000 
+	Parameter DO_MATHS_OPP_SAVE_IN_B bound to: 8'b00110001 
+	Parameter DO_MATHS_OPP_0 bound to: 8'b00110010 
+	Parameter IF_A_EQUALITY_B_GOTO bound to: 8'b01000000 
+	Parameter IF_A_EQUALITY_B_GOTO_0 bound to: 8'b01000001 
+	Parameter IF_A_EQUALITY_B_GOTO_1 bound to: 8'b01000010 
+	Parameter GOTO bound to: 8'b01010000 
+	Parameter GOTO_0 bound to: 8'b01010001 
+	Parameter GOTO_1 bound to: 8'b01010010 
+	Parameter FUNCTION_START bound to: 8'b01100000 
+	Parameter FUNCTION_START_0 bound to: 8'b01100001 
+	Parameter FUNCTION_START_1 bound to: 8'b01100010 
+	Parameter RETURN bound to: 8'b01110000 
+	Parameter RETURN_0 bound to: 8'b01110001 
+	Parameter DE_REFERENCE_A bound to: 8'b10000000 
+	Parameter DE_REFERENCE_B bound to: 8'b10000001 
+	Parameter DE_REFERENCE_0 bound to: 8'b10000010 
+	Parameter DE_REFERENCE_1 bound to: 8'b10000011 
+INFO: [Synth 8-638] synthesizing module 'ALU' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ALU.v:23]
+INFO: [Synth 8-256] done synthesizing module 'ALU' (1#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ALU.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Microprocessor.v:215]
+INFO: [Synth 8-256] done synthesizing module 'Microprocessor' (2#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Microprocessor.v:23]
+WARNING: [Synth 8-350] instance 'proc' of module 'Microprocessor' requires 10 connections, but only 9 given [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/TopModule.v:51]
+INFO: [Synth 8-638] synthesizing module 'ROM' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:23]
+	Parameter RAMAddrWidth bound to: 8 - type: integer 
+CRITICAL WARNING: [Synth 8-4445] could not open $readmem data file, ignoring [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:37]
+
+Warning: Trying to implement RAM in registers. Block RAM or DRAM implementation is not possible for one or more of the following reasons :
+	1: Unable to determine number of words or word size in RAM. 
+RAM dissolved into registers
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+WARNING: [Synth 8-3848] Net rom in module/entity ROM does not have driver. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:34]
+INFO: [Common 17-14] Message 'Synth 8-3848' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-256] done synthesizing module 'ROM' (3#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ROM.v:23]
+INFO: [Synth 8-638] synthesizing module 'RAM' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/RAM.v:23]
+	Parameter RAMBaseAddr bound to: 0 - type: integer 
+	Parameter RAMAddrWidth bound to: 7 - type: integer 
+CRITICAL WARNING: [Synth 8-4445] could not open $readmem data file, ignoring [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/RAM.v:48]
+INFO: [Synth 8-256] done synthesizing module 'RAM' (4#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/RAM.v:23]
+INFO: [Synth 8-638] synthesizing module 'Timer' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Timer.v:23]
+	Parameter TimerBaseAddr bound to: 8'b11110000 
+	Parameter InitialIterruptRate bound to: 100 - type: integer 
+	Parameter InitialIterruptEnable bound to: 1'b1 
+INFO: [Synth 8-256] done synthesizing module 'Timer' (5#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Timer.v:23]
+INFO: [Synth 8-638] synthesizing module 'VGA_Driver' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/VGA_Driver.v:23]
+	Parameter VGABaseAddress bound to: 8'b10110000 
+	Parameter MouseLimitY bound to: 8'b01111000 
+INFO: [Synth 8-638] synthesizing module 'Frame_Buffer' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Frame_Buffer.v:23]
+INFO: [Synth 8-256] done synthesizing module 'Frame_Buffer' (6#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Frame_Buffer.v:23]
+INFO: [Synth 8-638] synthesizing module 'VGA_Sig_Gen' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/VGA_Sig_Gen.v:23]
+	Parameter HTs bound to: 800 - type: integer 
+	Parameter HTpw bound to: 96 - type: integer 
+	Parameter HTDisp bound to: 640 - type: integer 
+	Parameter Hbp bound to: 48 - type: integer 
+	Parameter Hfp bound to: 16 - type: integer 
+	Parameter VTs bound to: 521 - type: integer 
+	Parameter VTpw bound to: 2 - type: integer 
+	Parameter VTDisp bound to: 480 - type: integer 
+	Parameter Vbp bound to: 29 - type: integer 
+	Parameter Vfp bound to: 10 - type: integer 
+	Parameter VertTimeToPulseWidthEnd bound to: 10'b0000000010 
+	Parameter VertTimeToBackPorchEnd bound to: 10'b0000011111 
+	Parameter VertTimeToDisplayTimeEnd bound to: 10'b0111111111 
+	Parameter VertTimeToFrontPorchEnd bound to: 10'b1000001001 
+	Parameter HorzTimeToPulseWidthEnd bound to: 10'b0001100000 
+	Parameter HorzTimeToBackPorchEnd bound to: 10'b0010010000 
+	Parameter HorzTimeToDisplayTimeEnd bound to: 10'b1100010000 
+	Parameter HorzTimeToFrontPorchEnd bound to: 10'b1100100000 
+INFO: [Synth 8-256] done synthesizing module 'VGA_Sig_Gen' (7#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/VGA_Sig_Gen.v:23]
+INFO: [Synth 8-256] done synthesizing module 'VGA_Driver' (8#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/VGA_Driver.v:23]
+INFO: [Synth 8-638] synthesizing module 'MousePeripheral' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/BusInterfaceMouse.v:23]
+	Parameter MouseBaseAddr bound to: 8'b10100000 
+INFO: [Synth 8-638] synthesizing module 'MouseTransceiver' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/MouseTransceiver.v:23]
+	Parameter MouseLimitX bound to: 8'b10100000 
+	Parameter MouseLimitY bound to: 8'b01111000 
+INFO: [Synth 8-638] synthesizing module 'MouseTransmitter' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/MouseTransmitter.v:23]
+INFO: [Synth 8-256] done synthesizing module 'MouseTransmitter' (9#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/MouseTransmitter.v:23]
+INFO: [Synth 8-638] synthesizing module 'MouseReceiver' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/MouseReceiver.v:23]
+INFO: [Synth 8-256] done synthesizing module 'MouseReceiver' (10#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/MouseReceiver.v:23]
+INFO: [Synth 8-638] synthesizing module 'MouseMasterSM' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/MouseMasterSM.v:23]
+INFO: [Synth 8-256] done synthesizing module 'MouseMasterSM' (11#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/MouseMasterSM.v:23]
+INFO: [Synth 8-256] done synthesizing module 'MouseTransceiver' (12#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/MouseTransceiver.v:23]
+INFO: [Synth 8-256] done synthesizing module 'MousePeripheral' (13#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/BusInterfaceMouse.v:23]
+INFO: [Synth 8-638] synthesizing module 'Seg7Peripheral' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Seg7Peripheral.v:23]
+	Parameter Seg7BaseAddress bound to: 8'b11010000 
+INFO: [Synth 8-638] synthesizing module 'DisplayInterface' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/DisplayInterface.v:23]
+INFO: [Synth 8-638] synthesizing module 'Generic_counter' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Generic_counter.v:23]
+	Parameter COUNTER_WIDTH bound to: 17 - type: integer 
+	Parameter COUNTER_MAX bound to: 99999 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'Generic_counter' (14#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Generic_counter.v:23]
+WARNING: [Synth 8-350] instance 'Bit17Counter' of module 'Generic_counter' requires 5 connections, but only 4 given [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/DisplayInterface.v:36]
+INFO: [Synth 8-638] synthesizing module 'Generic_counter__parameterized0' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Generic_counter.v:23]
+	Parameter COUNTER_WIDTH bound to: 2 - type: integer 
+	Parameter COUNTER_MAX bound to: 3 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'Generic_counter__parameterized0' (14#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Generic_counter.v:23]
+WARNING: [Synth 8-350] instance 'Bit2Counter' of module 'Generic_counter' requires 5 connections, but only 4 given [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/DisplayInterface.v:45]
+INFO: [Synth 8-638] synthesizing module 'Multiplexer_4way' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Multiplexer_4way.v:23]
+INFO: [Synth 8-226] default block is never used [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Multiplexer_4way.v:33]
+INFO: [Synth 8-256] done synthesizing module 'Multiplexer_4way' (15#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Multiplexer_4way.v:23]
+INFO: [Synth 8-638] synthesizing module 'Decimal_decoder' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Decimal_decoder.v:24]
+INFO: [Synth 8-226] default block is never used [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Decimal_decoder.v:42]
+INFO: [Synth 8-256] done synthesizing module 'Decimal_decoder' (16#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Decimal_decoder.v:24]
+INFO: [Synth 8-256] done synthesizing module 'DisplayInterface' (17#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/DisplayInterface.v:23]
+INFO: [Synth 8-256] done synthesizing module 'Seg7Peripheral' (18#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/Seg7Peripheral.v:23]
+WARNING: [Synth 8-689] width (1) of port connection 'BUS_ADDR' does not match port width (8) of module 'Seg7Peripheral' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/TopModule.v:131]
+WARNING: [Synth 8-689] width (1) of port connection 'BUS_DATA' does not match port width (8) of module 'Seg7Peripheral' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/TopModule.v:132]
+WARNING: [Synth 8-350] instance 'SevenSegment' of module 'Seg7Peripheral' requires 7 connections, but only 6 given [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/TopModule.v:129]
+INFO: [Synth 8-638] synthesizing module 'LedPeripheral' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/LedPeripheral.v:23]
+	Parameter LedBaseAddress bound to: 8'b11000000 
+INFO: [Synth 8-256] done synthesizing module 'LedPeripheral' (19#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/LedPeripheral.v:23]
+WARNING: [Synth 8-689] width (1) of port connection 'BUS_DATA' does not match port width (8) of module 'LedPeripheral' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/TopModule.v:141]
+WARNING: [Synth 8-689] width (1) of port connection 'BUS_ADDR' does not match port width (8) of module 'LedPeripheral' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/TopModule.v:142]
+WARNING: [Synth 8-350] instance 'LED' of module 'LedPeripheral' requires 6 connections, but only 5 given [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/TopModule.v:139]
+INFO: [Synth 8-256] done synthesizing module 'Top' (20#1) [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/TopModule.v:23]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 959.785 ; gain = 189.809 ; free physical = 442 ; free virtual = 25827
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin SevenSegment:RESET to constant 0 [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/TopModule.v:129]
+WARNING: [Synth 8-3295] tying undriven pin SevenSegment:BUS_ADDR[0] to constant 0 [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/TopModule.v:129]
+WARNING: [Synth 8-3295] tying undriven pin SevenSegment:BUS_DATA[0] to constant 0 [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/TopModule.v:129]
+WARNING: [Synth 8-3295] tying undriven pin SevenSegment:BUS_WE to constant 0 [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/TopModule.v:129]
+WARNING: [Synth 8-3295] tying undriven pin LED:RESET to constant 0 [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/TopModule.v:139]
+WARNING: [Synth 8-3295] tying undriven pin LED:BUS_ADDR[0] to constant 0 [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/TopModule.v:139]
+WARNING: [Synth 8-3295] tying undriven pin LED:BUS_DATA[0] to constant 0 [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/TopModule.v:139]
+WARNING: [Synth 8-3295] tying undriven pin LED:BUS_WE to constant 0 [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/TopModule.v:139]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 959.785 ; gain = 189.809 ; free physical = 443 ; free virtual = 25828
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35ticpg236-1L
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/constrs_1/imports/testing src code/constraint.xdc]
+WARNING: [Vivado 12-584] No ports matched 'SWITCH'. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/constrs_1/imports/testing src code/constraint.xdc:10]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/constrs_1/imports/testing src code/constraint.xdc:10]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'SWITCH'. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/constrs_1/imports/testing src code/constraint.xdc:11]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/constrs_1/imports/testing src code/constraint.xdc:11]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'IR_LED'. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/constrs_1/imports/testing src code/constraint.xdc:148]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/constrs_1/imports/testing src code/constraint.xdc:148]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'IR_LED'. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/constrs_1/imports/testing src code/constraint.xdc:149]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/constrs_1/imports/testing src code/constraint.xdc:149]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/constrs_1/imports/testing src code/constraint.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1290.949 ; gain = 0.000 ; free physical = 437 ; free virtual = 25655
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 438 ; free virtual = 25656
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35ticpg236-1L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 438 ; free virtual = 25656
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 438 ; free virtual = 25656
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/ALU.v:40]
+INFO: [Synth 8-802] inferred FSM for state register 'CurrState_reg' in module 'Microprocessor'
+INFO: [Synth 8-5546] ROM "NextState" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "NextProgCounterOffset" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "NextBusDataOut" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "NextRegSelect" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "NextProgContext" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "NextState" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "NextState" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "NextState" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5545] ROM "DownCounter" won't be mapped to RAM because address size (32) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "Timer" won't be mapped to RAM because address size (32) is larger than maximum supported(18)
+INFO: [Synth 8-5546] ROM "TransmitTimerValue" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "VCounter" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ADDR_FB" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_in" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'Curr_State_reg' in module 'MouseTransmitter'
+INFO: [Synth 8-5546] ROM "Next_State" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Next_State" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "Next_MouseDataOutWE" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "Next_MouseClkOutWE" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "Next_State" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'Curr_State_reg' in module 'MouseReceiver'
+INFO: [Synth 8-5544] ROM "Next_State" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "Next_ByteReceived" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "Next_State" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'Curr_State_reg' in module 'MouseMasterSM'
+INFO: [Synth 8-5545] ROM "Next_State" won't be mapped to RAM because address size (24) is larger than maximum supported(18)
+INFO: [Synth 8-5544] ROM "Next_Status" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "Next_SendInterrupt" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "Next_ReadEnable" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "Next_ByteToSend" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "Next_SendByte" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "Next_Counter" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "Next_State" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "Next_State" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "Next_State" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "Next_State" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "Next_State" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "Next_State" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "Next_State" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "ValueIn" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "LEDS" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                     Old Encoding 
+---------------------------------------------------------------------------------------------------
+              CHOOSE_OPP |                            00000 |                         00000000
+      READ_FROM_MEM_TO_A |                            00001 |                         00010000
+      READ_FROM_MEM_TO_B |                            00010 |                         00010001
+         READ_FROM_MEM_0 |                            00011 |                         00010010
+         READ_FROM_MEM_1 |                            00100 |                         00010011
+         READ_FROM_MEM_2 |                            00101 |                         00010100
+     WRITE_TO_MEM_FROM_A |                            00110 |                         00100000
+     WRITE_TO_MEM_FROM_B |                            00111 |                         00100001
+          WRITE_TO_MEM_0 |                            01000 |                         00100010
+  DO_MATHS_OPP_SAVE_IN_A |                            01001 |                         00110000
+  DO_MATHS_OPP_SAVE_IN_B |                            01010 |                         00110001
+          DO_MATHS_OPP_0 |                            01011 |                         00110010
+    IF_A_EQUALITY_B_GOTO |                            01100 |                         01000000
+  IF_A_EQUALITY_B_GOTO_0 |                            01101 |                         01000001
+  IF_A_EQUALITY_B_GOTO_1 |                            01110 |                         01000010
+                    GOTO |                            01111 |                         01010000
+                  GOTO_0 |                            10000 |                         01010001
+                  GOTO_1 |                            10001 |                         01010010
+                    IDLE |                            10010 |                         11110000
+ GET_THREAD_START_ADDR_0 |                            10011 |                         11110001
+ GET_THREAD_START_ADDR_1 |                            10100 |                         11110010
+ GET_THREAD_START_ADDR_2 |                            10101 |                         11110011
+          FUNCTION_START |                            10110 |                         01100000
+        FUNCTION_START_0 |                            10111 |                         01100001
+        FUNCTION_START_1 |                            11000 |                         01100010
+                  RETURN |                            11001 |                         01110000
+                RETURN_0 |                            11010 |                         01110001
+          DE_REFERENCE_A |                            11011 |                         10000000
+          DE_REFERENCE_B |                            11100 |                         10000001
+          DE_REFERENCE_0 |                            11101 |                         10000010
+          DE_REFERENCE_1 |                            11110 |                         10000011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'CurrState_reg' using encoding 'sequential' in module 'Microprocessor'
+INFO: [Synth 8-5562] The signal Mem_reg is implemented as block RAM but is better mapped onto distributed LUT RAM for the following reason(s): The *depth (7 address bits)* is shallow. Please use attribute (* ram_style = "distributed" *) to instruct Vivado to infer distributed LUT RAM.
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                     Old Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0000 |                             0000
+                 iSTATE0 |                             0001 |                             0001
+                 iSTATE1 |                             0010 |                             0010
+                 iSTATE2 |                             0011 |                             0011
+                 iSTATE3 |                             0100 |                             0100
+                 iSTATE4 |                             0101 |                             0101
+                 iSTATE5 |                             0110 |                             0110
+                 iSTATE6 |                             0111 |                             0111
+                 iSTATE7 |                             1000 |                             1000
+                 iSTATE8 |                             1001 |                             1001
+                 iSTATE9 |                             1010 |                             1010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Curr_State_reg' using encoding 'sequential' in module 'MouseTransmitter'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                     Old Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              000 |                              000
+                 iSTATE0 |                              001 |                              001
+                 iSTATE1 |                              010 |                              010
+                 iSTATE2 |                              011 |                              011
+                 iSTATE3 |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Curr_State_reg' using encoding 'sequential' in module 'MouseReceiver'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                     Old Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0000 |                             0000
+                 iSTATE0 |                             0001 |                             0001
+                 iSTATE1 |                             0010 |                             0010
+                 iSTATE2 |                             0011 |                             0011
+                 iSTATE3 |                             0100 |                             0100
+                 iSTATE4 |                             0101 |                             0101
+                 iSTATE5 |                             0110 |                             0110
+                 iSTATE6 |                             0111 |                             0111
+                 iSTATE7 |                             1000 |                             1000
+                 iSTATE8 |                             1001 |                             1001
+                 iSTATE9 |                             1010 |                             1010
+                iSTATE10 |                             1011 |                             1011
+                iSTATE11 |                             1100 |                             1100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'Curr_State_reg' using encoding 'sequential' in module 'MouseMasterSM'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 427 ; free virtual = 25644
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
+	   2 Input     24 Bit       Adders := 1     
+	   2 Input     17 Bit       Adders := 1     
+	   2 Input     16 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 4     
+	   2 Input      9 Bit       Adders := 2     
+	   3 Input      8 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 3     
+	   2 Input      7 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---XORs : 
+	                8 Bit    Wide XORs := 2     
++---Registers : 
+	               32 Bit    Registers := 2     
+	               24 Bit    Registers := 1     
+	               17 Bit    Registers := 1     
+	               16 Bit    Registers := 3     
+	               15 Bit    Registers := 1     
+	               10 Bit    Registers := 4     
+	                8 Bit    Registers := 22    
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 32    
++---RAMs : 
+	              32K Bit         RAMs := 1     
+	             1024 Bit         RAMs := 1     
++---Muxes : 
+	  13 Input     24 Bit        Muxes := 1     
+	  11 Input     16 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 2     
+	   2 Input     15 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 4     
+	  14 Input      8 Bit        Muxes := 3     
+	   3 Input      8 Bit        Muxes := 1     
+	  31 Input      8 Bit        Muxes := 5     
+	   2 Input      8 Bit        Muxes := 9     
+	  11 Input      8 Bit        Muxes := 1     
+	   5 Input      8 Bit        Muxes := 1     
+	  13 Input      8 Bit        Muxes := 4     
+	  16 Input      7 Bit        Muxes := 1     
+	  47 Input      5 Bit        Muxes := 1     
+	   4 Input      5 Bit        Muxes := 1     
+	  11 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 1     
+	  13 Input      4 Bit        Muxes := 1     
+	  20 Input      4 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	  31 Input      2 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 1     
+	  31 Input      1 Bit        Muxes := 9     
+	   2 Input      1 Bit        Muxes := 13    
+	   4 Input      1 Bit        Muxes := 1     
+	  11 Input      1 Bit        Muxes := 8     
+	   5 Input      1 Bit        Muxes := 4     
+	  13 Input      1 Bit        Muxes := 9     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module ALU 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input      8 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
++---Muxes : 
+	  14 Input      8 Bit        Muxes := 3     
+Module Microprocessor 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 3     
++---Registers : 
+	                8 Bit    Registers := 6     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   3 Input      8 Bit        Muxes := 1     
+	  31 Input      8 Bit        Muxes := 5     
+	   2 Input      8 Bit        Muxes := 1     
+	  47 Input      5 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	  31 Input      2 Bit        Muxes := 1     
+	  31 Input      1 Bit        Muxes := 9     
+Module ROM 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
+Module RAM 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---RAMs : 
+	             1024 Bit         RAMs := 1     
+Module Timer 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
++---Registers : 
+	               32 Bit    Registers := 2     
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 4     
+Module Frame_Buffer 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
++---RAMs : 
+	              32K Bit         RAMs := 1     
+Module VGA_Sig_Gen 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 4     
++---Registers : 
+	               10 Bit    Registers := 4     
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 2     
+Module VGA_Driver 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Registers : 
+	               15 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input     15 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+Module MouseTransmitter 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     16 Bit       Adders := 1     
++---XORs : 
+	                8 Bit    Wide XORs := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 5     
++---Muxes : 
+	  11 Input     16 Bit        Muxes := 1     
+	  11 Input      8 Bit        Muxes := 1     
+	  11 Input      4 Bit        Muxes := 1     
+	  11 Input      1 Bit        Muxes := 8     
+Module MouseReceiver 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---XORs : 
+	                8 Bit    Wide XORs := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   5 Input      8 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 3     
+	   5 Input      1 Bit        Muxes := 4     
+Module MouseMasterSM 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     24 Bit       Adders := 1     
++---Registers : 
+	               24 Bit    Registers := 1     
+	                8 Bit    Registers := 4     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	  13 Input     24 Bit        Muxes := 1     
+	  13 Input      8 Bit        Muxes := 4     
+	  13 Input      4 Bit        Muxes := 1     
+	  20 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	  13 Input      1 Bit        Muxes := 9     
+Module MouseTransceiver 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 2     
++---Registers : 
+	                8 Bit    Registers := 4     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 4     
+	   2 Input      8 Bit        Muxes := 6     
+	   2 Input      1 Bit        Muxes := 2     
+Module MousePeripheral 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2     
+Module Generic_counter 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 1     
++---Registers : 
+	               17 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module Generic_counter__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      2 Bit        Muxes := 1     
+Module Multiplexer_4way 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input      5 Bit        Muxes := 1     
+Module Decimal_decoder 
+Detailed RTL Component Info : 
++---Muxes : 
+	  16 Input      7 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+Module Seg7Peripheral 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+Module LedPeripheral 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 120 (col length:60)
+BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 427 ; free virtual = 25644
+---------------------------------------------------------------------------------
+Start Cross Boundary Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5545] ROM "DownCounter" won't be mapped to RAM because address size (32) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "Timer" won't be mapped to RAM because address size (32) is larger than maximum supported(18)
+INFO: [Synth 8-5546] ROM "TransmitTimerValue" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sg/VCounter" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ADDR_FB" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-4471] merging register 'mt/R/ClkMouseInDly_reg' into 'mt/T/ClkMouseInDly_reg' [/home/s2736992/InteracingVGA_Mouse/InteracingVGA_Mouse.srcs/sources_1/imports/testing src code/MouseReceiver.v:42]
+INFO: [Synth 8-5546] ROM "mt/T/Next_State" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mt/T/Next_State" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "mt/MSM/Next_State" won't be mapped to RAM because address size (24) is larger than maximum supported(18)
+INFO: [Synth 8-5546] ROM "ValueIn" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "LEDS" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 524 ; free virtual = 25616
+---------------------------------------------------------------------------------
+Finished Parallel Reinference  : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 524 ; free virtual = 25616
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+INFO: [Synth 8-5562] The signal ram/Mem_reg is implemented as block RAM but is better mapped onto distributed LUT RAM for the following reason(s): The *depth (7 address bits)* is shallow. Please use attribute (* ram_style = "distributed" *) to instruct Vivado to infer distributed LUT RAM.
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++---------------+------------+---------------+----------------+
+|Module Name    | RTL Object | Depth x Width | Implemented As | 
++---------------+------------+---------------+----------------+
+|Microprocessor | rom        | 32x8          | LUT            | 
++---------------+------------+---------------+----------------+
+
+
+Block RAM:
++------------+-------------+------------------------+---+---+------------------------+---+---+--------------+--------+--------+--------------------------+
+|Module Name | RTL Object  | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | OUT_REG      | RAMB18 | RAMB36 | Hierarchical Name        | 
++------------+-------------+------------------------+---+---+------------------------+---+---+--------------+--------+--------+--------------------------+
+|Top         | ram/Mem_reg | 128 x 8(READ_FIRST)    | W | R |                        |   |   | Port A       | 1      | 0      | Top/extram__3            | 
+|Top         | fb/Mem_reg  | 32 K x 1(READ_FIRST)   | W | R | 32 K x 1(WRITE_FIRST)  |   | R | Port A and B | 0      | 1      | Top/VGA_Driver/extram__5 | 
++------------+-------------+------------------------+---+---+------------------------+---+---+--------------+--------+--------+--------------------------+
+
+Note: The table shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. "Hierarchical Name" reflects the Block RAM name as it appears in the hierarchical module and only part of it is displayed.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (proc/\CurrProgCounterOffset_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rom/\DATA_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (LED/\LEDS_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (SevenSegment/\ValueIn_reg[2] )
+WARNING: [Synth 8-3332] Sequential element (\CurrProgCounter_reg[7] ) is unused and will be removed from module Microprocessor.
+WARNING: [Synth 8-3332] Sequential element (\CurrProgCounter_reg[6] ) is unused and will be removed from module Microprocessor.
+WARNING: [Synth 8-3332] Sequential element (\CurrProgCounter_reg[5] ) is unused and will be removed from module Microprocessor.
+WARNING: [Synth 8-3332] Sequential element (\CurrProgCounter_reg[4] ) is unused and will be removed from module Microprocessor.
+WARNING: [Synth 8-3332] Sequential element (\CurrProgCounter_reg[3] ) is unused and will be removed from module Microprocessor.
+WARNING: [Synth 8-3332] Sequential element (\CurrProgCounter_reg[2] ) is unused and will be removed from module Microprocessor.
+WARNING: [Synth 8-3332] Sequential element (\CurrProgCounter_reg[1] ) is unused and will be removed from module Microprocessor.
+WARNING: [Synth 8-3332] Sequential element (\CurrProgCounter_reg[0] ) is unused and will be removed from module Microprocessor.
+WARNING: [Synth 8-3332] Sequential element (\CurrProgContext_reg[7] ) is unused and will be removed from module Microprocessor.
+WARNING: [Synth 8-3332] Sequential element (\CurrProgContext_reg[6] ) is unused and will be removed from module Microprocessor.
+WARNING: [Synth 8-3332] Sequential element (\CurrProgContext_reg[5] ) is unused and will be removed from module Microprocessor.
+WARNING: [Synth 8-3332] Sequential element (\CurrProgContext_reg[4] ) is unused and will be removed from module Microprocessor.
+WARNING: [Synth 8-3332] Sequential element (\CurrProgContext_reg[3] ) is unused and will be removed from module Microprocessor.
+WARNING: [Synth 8-3332] Sequential element (\CurrProgContext_reg[2] ) is unused and will be removed from module Microprocessor.
+WARNING: [Synth 8-3332] Sequential element (\CurrProgContext_reg[1] ) is unused and will be removed from module Microprocessor.
+WARNING: [Synth 8-3332] Sequential element (\CurrProgContext_reg[0] ) is unused and will be removed from module Microprocessor.
+WARNING: [Synth 8-3332] Sequential element (\CurrProgCounterOffset_reg[1] ) is unused and will be removed from module Microprocessor.
+WARNING: [Synth 8-3332] Sequential element (\CurrProgCounterOffset_reg[0] ) is unused and will be removed from module Microprocessor.
+WARNING: [Synth 8-3332] Sequential element (\DATA_reg[7] ) is unused and will be removed from module ROM.
+WARNING: [Synth 8-3332] Sequential element (\DATA_reg[6] ) is unused and will be removed from module ROM.
+WARNING: [Synth 8-3332] Sequential element (\DATA_reg[5] ) is unused and will be removed from module ROM.
+WARNING: [Synth 8-3332] Sequential element (\DATA_reg[4] ) is unused and will be removed from module ROM.
+WARNING: [Synth 8-3332] Sequential element (\DATA_reg[3] ) is unused and will be removed from module ROM.
+WARNING: [Synth 8-3332] Sequential element (\DATA_reg[2] ) is unused and will be removed from module ROM.
+WARNING: [Synth 8-3332] Sequential element (\DATA_reg[1] ) is unused and will be removed from module ROM.
+WARNING: [Synth 8-3332] Sequential element (\DATA_reg[0] ) is unused and will be removed from module ROM.
+WARNING: [Synth 8-3332] Sequential element (\sg/ADDRH_reg[1] ) is unused and will be removed from module VGA_Driver.
+WARNING: [Synth 8-3332] Sequential element (\sg/ADDRH_reg[0] ) is unused and will be removed from module VGA_Driver.
+WARNING: [Synth 8-3332] Sequential element (\sg/ADDRV_reg[9] ) is unused and will be removed from module VGA_Driver.
+WARNING: [Synth 8-3332] Sequential element (\sg/ADDRV_reg[1] ) is unused and will be removed from module VGA_Driver.
+WARNING: [Synth 8-3332] Sequential element (\sg/ADDRV_reg[0] ) is unused and will be removed from module VGA_Driver.
+WARNING: [Synth 8-3332] Sequential element (\sg/VGA_COLOUR_reg[6] ) is unused and will be removed from module VGA_Driver.
+WARNING: [Synth 8-3332] Sequential element (\sg/VGA_COLOUR_reg[5] ) is unused and will be removed from module VGA_Driver.
+WARNING: [Synth 8-3332] Sequential element (\sg/VGA_COLOUR_reg[4] ) is unused and will be removed from module VGA_Driver.
+WARNING: [Synth 8-3332] Sequential element (\sg/VGA_COLOUR_reg[3] ) is unused and will be removed from module VGA_Driver.
+WARNING: [Synth 8-3332] Sequential element (\sg/VGA_COLOUR_reg[2] ) is unused and will be removed from module VGA_Driver.
+WARNING: [Synth 8-3332] Sequential element (\sg/VGA_COLOUR_reg[1] ) is unused and will be removed from module VGA_Driver.
+WARNING: [Synth 8-3332] Sequential element (\sg/VGA_COLOUR_reg[0] ) is unused and will be removed from module VGA_Driver.
+WARNING: [Synth 8-3332] Sequential element (\mt/T/Curr_ByteToSend_reg[7] ) is unused and will be removed from module MousePeripheral.
+WARNING: [Synth 8-3332] Sequential element (\mt/T/Curr_ByteToSend_reg[6] ) is unused and will be removed from module MousePeripheral.
+WARNING: [Synth 8-3332] Sequential element (\mt/T/Curr_ByteToSend_reg[5] ) is unused and will be removed from module MousePeripheral.
+WARNING: [Synth 8-3332] Sequential element (\mt/T/Curr_ByteToSend_reg[4] ) is unused and will be removed from module MousePeripheral.
+WARNING: [Synth 8-3332] Sequential element (\mt/T/Curr_ByteToSend_reg[3] ) is unused and will be removed from module MousePeripheral.
+WARNING: [Synth 8-3332] Sequential element (\mt/T/Curr_ByteToSend_reg[1] ) is unused and will be removed from module MousePeripheral.
+WARNING: [Synth 8-3332] Sequential element (\mt/MSM/Curr_ByteToSend_reg[7] ) is unused and will be removed from module MousePeripheral.
+WARNING: [Synth 8-3332] Sequential element (\mt/MSM/Curr_ByteToSend_reg[6] ) is unused and will be removed from module MousePeripheral.
+WARNING: [Synth 8-3332] Sequential element (\mt/MSM/Curr_ByteToSend_reg[5] ) is unused and will be removed from module MousePeripheral.
+WARNING: [Synth 8-3332] Sequential element (\mt/MSM/Curr_ByteToSend_reg[4] ) is unused and will be removed from module MousePeripheral.
+WARNING: [Synth 8-3332] Sequential element (\mt/MSM/Curr_ByteToSend_reg[3] ) is unused and will be removed from module MousePeripheral.
+WARNING: [Synth 8-3332] Sequential element (\mt/MSM/Curr_ByteToSend_reg[1] ) is unused and will be removed from module MousePeripheral.
+WARNING: [Synth 8-3332] Sequential element (\ValueIn_reg[15] ) is unused and will be removed from module Seg7Peripheral.
+WARNING: [Synth 8-3332] Sequential element (\ValueIn_reg[14] ) is unused and will be removed from module Seg7Peripheral.
+WARNING: [Synth 8-3332] Sequential element (\ValueIn_reg[13] ) is unused and will be removed from module Seg7Peripheral.
+WARNING: [Synth 8-3332] Sequential element (\ValueIn_reg[12] ) is unused and will be removed from module Seg7Peripheral.
+WARNING: [Synth 8-3332] Sequential element (\ValueIn_reg[11] ) is unused and will be removed from module Seg7Peripheral.
+WARNING: [Synth 8-3332] Sequential element (\ValueIn_reg[10] ) is unused and will be removed from module Seg7Peripheral.
+WARNING: [Synth 8-3332] Sequential element (\ValueIn_reg[9] ) is unused and will be removed from module Seg7Peripheral.
+WARNING: [Synth 8-3332] Sequential element (\ValueIn_reg[8] ) is unused and will be removed from module Seg7Peripheral.
+WARNING: [Synth 8-3332] Sequential element (\ValueIn_reg[7] ) is unused and will be removed from module Seg7Peripheral.
+WARNING: [Synth 8-3332] Sequential element (\ValueIn_reg[6] ) is unused and will be removed from module Seg7Peripheral.
+WARNING: [Synth 8-3332] Sequential element (\ValueIn_reg[5] ) is unused and will be removed from module Seg7Peripheral.
+WARNING: [Synth 8-3332] Sequential element (\ValueIn_reg[4] ) is unused and will be removed from module Seg7Peripheral.
+WARNING: [Synth 8-3332] Sequential element (\ValueIn_reg[3] ) is unused and will be removed from module Seg7Peripheral.
+WARNING: [Synth 8-3332] Sequential element (\ValueIn_reg[2] ) is unused and will be removed from module Seg7Peripheral.
+WARNING: [Synth 8-3332] Sequential element (\ValueIn_reg[1] ) is unused and will be removed from module Seg7Peripheral.
+WARNING: [Synth 8-3332] Sequential element (\ValueIn_reg[0] ) is unused and will be removed from module Seg7Peripheral.
+WARNING: [Synth 8-3332] Sequential element (\LEDS_reg[15] ) is unused and will be removed from module LedPeripheral.
+WARNING: [Synth 8-3332] Sequential element (\LEDS_reg[14] ) is unused and will be removed from module LedPeripheral.
+WARNING: [Synth 8-3332] Sequential element (\LEDS_reg[13] ) is unused and will be removed from module LedPeripheral.
+WARNING: [Synth 8-3332] Sequential element (\LEDS_reg[12] ) is unused and will be removed from module LedPeripheral.
+WARNING: [Synth 8-3332] Sequential element (\LEDS_reg[11] ) is unused and will be removed from module LedPeripheral.
+WARNING: [Synth 8-3332] Sequential element (\LEDS_reg[10] ) is unused and will be removed from module LedPeripheral.
+WARNING: [Synth 8-3332] Sequential element (\LEDS_reg[9] ) is unused and will be removed from module LedPeripheral.
+WARNING: [Synth 8-3332] Sequential element (\LEDS_reg[8] ) is unused and will be removed from module LedPeripheral.
+WARNING: [Synth 8-3332] Sequential element (\LEDS_reg[7] ) is unused and will be removed from module LedPeripheral.
+WARNING: [Synth 8-3332] Sequential element (\LEDS_reg[6] ) is unused and will be removed from module LedPeripheral.
+WARNING: [Synth 8-3332] Sequential element (\LEDS_reg[5] ) is unused and will be removed from module LedPeripheral.
+WARNING: [Synth 8-3332] Sequential element (\LEDS_reg[4] ) is unused and will be removed from module LedPeripheral.
+WARNING: [Synth 8-3332] Sequential element (\LEDS_reg[3] ) is unused and will be removed from module LedPeripheral.
+WARNING: [Synth 8-3332] Sequential element (\LEDS_reg[2] ) is unused and will be removed from module LedPeripheral.
+WARNING: [Synth 8-3332] Sequential element (\LEDS_reg[1] ) is unused and will be removed from module LedPeripheral.
+WARNING: [Synth 8-3332] Sequential element (\LEDS_reg[0] ) is unused and will be removed from module LedPeripheral.
+---------------------------------------------------------------------------------
+Start Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (mouse/\mt/MouseY_reg[7] )
+WARNING: [Synth 8-3332] Sequential element (\mt/MouseY_reg[7] ) is unused and will be removed from module MousePeripheral.
+---------------------------------------------------------------------------------
+Finished Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 524 ; free virtual = 25616
+---------------------------------------------------------------------------------
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 524 ; free virtual = 25616
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 524 ; free virtual = 25616
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 491 ; free virtual = 25573
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 491 ; free virtual = 25573
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4480] The timing for the instance \ram/Mem_reg  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \vga/fb/Mem_reg  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 475 ; free virtual = 25557
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 477 ; free virtual = 25560
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 477 ; free virtual = 25560
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 477 ; free virtual = 25560
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 477 ; free virtual = 25560
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 477 ; free virtual = 25560
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----------+------+
+|      |Cell       |Count |
++------+-----------+------+
+|1     |BUFG       |     2|
+|2     |CARRY4     |    49|
+|3     |LUT1       |   155|
+|4     |LUT2       |    88|
+|5     |LUT3       |    52|
+|6     |LUT4       |    69|
+|7     |LUT5       |    37|
+|8     |LUT6       |   178|
+|9     |MUXF7      |     1|
+|10    |RAMB18E1   |     1|
+|11    |RAMB36E1_1 |     1|
+|12    |FDRE       |   360|
+|13    |FDSE       |    20|
+|14    |IBUF       |     2|
+|15    |IOBUF      |     2|
+|16    |OBUF       |    38|
++------+-----------+------+
+
+Report Instance Areas: 
++------+-------------------+--------------------------------+------+
+|      |Instance           |Module                          |Cells |
++------+-------------------+--------------------------------+------+
+|1     |top                |                                |  1055|
+|2     |  SevenSegment     |Seg7Peripheral                  |    51|
+|3     |    di             |DisplayInterface                |    51|
+|4     |      Bit17Counter |Generic_counter                 |    43|
+|5     |      Bit2Counter  |Generic_counter__parameterized0 |     8|
+|6     |  mouse            |MousePeripheral                 |   433|
+|7     |    mt             |MouseTransceiver                |   385|
+|8     |      MSM          |MouseMasterSM                   |   146|
+|9     |      R            |MouseReceiver                   |    66|
+|10    |      T            |MouseTransmitter                |    90|
+|11    |  proc             |Microprocessor                  |   130|
+|12    |    ALU0           |ALU                             |    36|
+|13    |  ram              |RAM                             |     2|
+|14    |  timer            |Timer                           |   284|
+|15    |  vga              |VGA_Driver                      |   111|
+|16    |    fb             |Frame_Buffer                    |     1|
+|17    |    sg             |VGA_Sig_Gen                     |    92|
++------+-------------------+--------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 477 ; free virtual = 25560
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 83 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1290.949 ; gain = 75.281 ; free physical = 477 ; free virtual = 25560
+Synthesis Optimization Complete : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1290.949 ; gain = 520.973 ; free physical = 477 ; free virtual = 25560
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 55 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 2 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 2 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+125 Infos, 204 Warnings, 6 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1298.957 ; gain = 420.480 ; free physical = 478 ; free virtual = 25562
+report_utilization: Time (s): cpu = 00:00:00.30 ; elapsed = 00:00:00.34 . Memory (MB): peak = 1330.973 ; gain = 0.000 ; free physical = 458 ; free virtual = 25543
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 25 12:36:04 2025...

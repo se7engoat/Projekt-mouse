@@ -1,0 +1,84 @@
+Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
+| Date         : Tue Mar 25 12:36:19 2025
+| Host         : tla103.see.ed.ac.uk running 64-bit Ubuntu 22.04.5 LTS
+| Command      : report_control_sets -verbose -file Top_control_sets_placed.rpt
+| Design       : Top
+| Device       : xc7a35ti
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++-------------------------------------------------------------------+-------+
+|                               Status                              | Count |
++-------------------------------------------------------------------+-------+
+| Number of unique control sets                                     |    31 |
+| Minimum Number of register sites lost to control set restrictions |    60 |
++-------------------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              29 |           18 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |             112 |           39 |
+| Yes          | No                    | No                     |              32 |            8 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             207 |           68 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++-------------------+------------------------------------------------------+------------------------------------------------------+------------------+----------------+
+|    Clock Signal   |                     Enable Signal                    |                   Set/Reset Signal                   | Slice Load Count | Bel Load Count |
++-------------------+------------------------------------------------------+------------------------------------------------------+------------------+----------------+
+|  vga/sg/VGA_CLK_1 |                                                      |                                                      |                1 |              1 |
+|  DPR_CLK          |                                                      |                                                      |                3 |              3 |
+|  CLK_IBUF_BUFG    | mouse/mt/MSM/MouseX_reg[0]                           | mouse/mt/MouseX[3]_i_1_n_0                           |                1 |              4 |
+|  CLK_IBUF_BUFG    | mouse/mt/MSM/FSM_sequential_Curr_State[3]_i_1__0_n_0 | RESET_IBUF                                           |                2 |              4 |
+|  CLK_IBUF_BUFG    | mouse/mt/T/FSM_sequential_Curr_State[3]_i_1_n_0      | RESET_IBUF                                           |                1 |              4 |
+|  CLK_IBUF_BUFG    | mouse/mt/R/Curr_BitCounter[3]_i_1_n_0                | RESET_IBUF                                           |                1 |              4 |
+|  CLK_IBUF_BUFG    | proc/FSM_sequential_CurrState[4]_i_1_n_0             | RESET_IBUF                                           |                2 |              5 |
+|  DPR_CLK          |                                                      | vga/sg/ADDRV[8]_i_1_n_0                              |                2 |              7 |
+|  CLK_IBUF_BUFG    | proc/ADDR_FB_reg[8][1]                               |                                                      |                2 |              7 |
+|  CLK_IBUF_BUFG    | mouse/mt/MSM/SendInterrupt                           | RESET_IBUF                                           |                4 |              8 |
+|  DPR_CLK          |                                                      | vga/sg/ADDRH[9]_i_1_n_0                              |                2 |              8 |
+|  CLK_IBUF_BUFG    | mouse/mt/MSM/Curr_Status[7]_i_1_n_0                  | RESET_IBUF                                           |                3 |              8 |
+|  CLK_IBUF_BUFG    | mouse/mt/MSM/Curr_Dy[7]_i_1_n_0                      | RESET_IBUF                                           |                4 |              8 |
+|  CLK_IBUF_BUFG    | mouse/mt/MSM/Curr_Dx[7]_i_1_n_0                      | RESET_IBUF                                           |                2 |              8 |
+|  CLK_IBUF_BUFG    | mouse/mt/R/Curr_MSCodeShiftReg[7]_i_1_n_0            | RESET_IBUF                                           |                4 |              8 |
+|  CLK_IBUF_BUFG    | mouse/mt/timer/p_0_in                                |                                                      |                2 |              8 |
+|  CLK_IBUF_BUFG    | proc/E[0]                                            | RESET_IBUF                                           |                4 |              8 |
+|  CLK_IBUF_BUFG    | proc/ADDR_FB_reg[8][0]                               |                                                      |                1 |              8 |
+|  CLK_IBUF_BUFG    | proc/CurrRegB[7]_i_1_n_0                             | RESET_IBUF                                           |                2 |              8 |
+|  CLK_IBUF_BUFG    | proc/CurrRegA[7]_i_1_n_0                             | RESET_IBUF                                           |                2 |              8 |
+|  CLK_IBUF_BUFG    | proc/CurrBusDataOutWE_i_1_n_0                        | RESET_IBUF                                           |                2 |              8 |
+|  CLK_IBUF_BUFG    | mouse/mt/MSM/MouseX_reg[0]                           |                                                      |                3 |              9 |
+|  DPR_CLK          |                                                      | RESET_IBUF                                           |                4 |             10 |
+|  DPR_CLK          | vga/sg/VCounter[9]_i_1_n_0                           | RESET_IBUF                                           |                3 |             10 |
+|  CLK_IBUF_BUFG    | mouse/mt/T/Curr_SendCounter[15]_i_1_n_0              | RESET_IBUF                                           |                6 |             16 |
+|  CLK_IBUF_BUFG    |                                                      | SevenSegment/di/Bit17Counter/count_value[16]_i_1_n_0 |                4 |             16 |
+|  CLK_IBUF_BUFG    | mouse/mt/MSM/Curr_Counter[23]_i_1_n_0                | RESET_IBUF                                           |                8 |             24 |
+|  CLK_IBUF_BUFG    |                                                      |                                                      |               14 |             25 |
+|  CLK_IBUF_BUFG    | timer/Timer[0]_i_2_n_0                               | proc/Timer_reg[31]                                   |                8 |             32 |
+|  CLK_IBUF_BUFG    | timer/TargetReached1                                 | RESET_IBUF                                           |                9 |             32 |
+|  CLK_IBUF_BUFG    |                                                      | RESET_IBUF                                           |               27 |             71 |
++-------------------+------------------------------------------------------+------------------------------------------------------+------------------+----------------+
+
+

@@ -58,41 +58,6 @@ module MouseMasterSM(
 	reg Curr_SendInterrupt, Next_SendInterrupt;
 	reg Curr_Intellimouse_Mode, Next_Intellimouse_Mode;
 
-	//Sequential
-	always@(posedge CLK)
-		begin
-			if(RESET)
-				begin
-					Curr_State 					<= 4'h0;
-					Curr_Counter 				<= 0;
-					Curr_SendByte 				<= 1'b0;
-					Curr_ByteToSend 			<= 8'h00;
-					Curr_ReadEnable 			<= 1'b0;
-					Curr_Status 				<= 8'h00;
-					Curr_Dx 						<= 8'h00;
-					Curr_Dy 						<= 8'h00;
-					Curr_Dz						<= 8'h00;
-					Curr_SendInterrupt 		<= 1'b0;
-					Curr_Intellimouse_Mode	<= 0;
-
-				end
-			else 
-				begin
-					Curr_State 					<= Next_State;
-					Curr_Counter 				<= Next_Counter;
-					Curr_SendByte 				<= Next_SendByte;
-					Curr_ByteToSend 			<= Next_ByteToSend;
-					Curr_ReadEnable 			<= Next_ReadEnable;
-					Curr_Status 				<= Next_Status;
-					Curr_Dx 						<= Next_Dx;
-					Curr_Dy 						<= Next_Dy;
-					Curr_Dz						<= Next_Dz;
-					Curr_SendInterrupt 		<= Next_SendInterrupt;
-					Curr_Intellimouse_Mode	<= Next_Intellimouse_Mode;
-				end
-		end
-	
-	
 	parameter INIT = 0, 
 	SEND_FF = 1, 
 	AWAIT_FF_SENT = 2, 
@@ -126,6 +91,42 @@ module MouseMasterSM(
 	AWAIT_BYTE_4 = 34,
 	SEND_INTR = 35
 	;
+
+	//Sequential
+	always@(posedge CLK)
+		begin
+			if(RESET)
+				begin
+					Curr_State 					<= INIT;
+					Curr_Counter 				<= 0;
+					Curr_SendByte 				<= 1'b0;
+					Curr_ByteToSend 			<= 8'h00;
+					Curr_ReadEnable 			<= 1'b0;
+					Curr_Status 				<= 8'h00;
+					Curr_Dx 						<= 8'h00;
+					Curr_Dy 						<= 8'h00;
+					Curr_Dz						<= 8'h00;
+					Curr_SendInterrupt 		<= 1'b0;
+					Curr_Intellimouse_Mode	<= 0;
+
+				end
+			else 
+				begin
+					Curr_State 					<= Next_State;
+					Curr_Counter 				<= Next_Counter;
+					Curr_SendByte 				<= Next_SendByte;
+					Curr_ByteToSend 			<= Next_ByteToSend;
+					Curr_ReadEnable 			<= Next_ReadEnable;
+					Curr_Status 				<= Next_Status;
+					Curr_Dx 						<= Next_Dx;
+					Curr_Dy 						<= Next_Dy;
+					Curr_Dz						<= Next_Dz;
+					Curr_SendInterrupt 		<= Next_SendInterrupt;
+					Curr_Intellimouse_Mode	<= Next_Intellimouse_Mode;
+				end
+		end
+	
+	
 	
 	
 	//Combinatorial

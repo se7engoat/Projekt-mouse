@@ -13,9 +13,9 @@ module tb_MouseMasterSM;
     
     // Receiver Control
     reg READ_ENABLE;
-    wire [7:0] BYTE_READ;
-    wire [1:0] BYTE_ERROR_CODE;
-    wire BYTE_READY;
+    reg [7:0] BYTE_READ;
+    reg [1:0] BYTE_ERROR_CODE;
+    reg BYTE_READY;
     
     // Data Registers
     wire [7:0] MOUSE_DX;
@@ -170,20 +170,20 @@ module tb_MouseMasterSM;
     initial begin
         #100;
         $display("Test Case 4: Multiple State Transitions");
-        uut.nextState = 4'b0001;
+        uut.Next_State = 4'b0001;
         #100;
         
-        if (uut.currentState !== 4'b0000)
-            $display("Error: currentState should be 0000, got %b", uut.currentState);
-        if (uut.nextState !== 4'b0001)
-            $display("Error: nextState should be 0001, got %b", uut.nextState);
+        if (uut.Curr_State !== 4'b0000)
+            $display("Error: Curr_State should be 0000, got %b", uut.Curr_State);
+        if (uut.Next_State !== 4'b0001)
+            $display("Error: Next_State should be 0001, got %b", uut.Next_State);
 
         // Wait for clock edge
         #10;
-        if (uut.currentState !== 4'b0001)
-            $display("Error: State didn't transition to 0001, current: %b", uut.currentState);
+        if (uut.Curr_State !== 4'b0001)
+            $display("Error: State didn't transition to 0001, current: %b", uut.Curr_State);
 
-        if ((uut.currentState !== 4'b0001) || (uut.nextState !== 4'b0001)) begin
+        if ((uut.Curr_State !== 4'b0001) || (uut.Next_State !== 4'b0001)) begin
             $display("Test Case 4 Failed");
             $finish;
         end
@@ -209,21 +209,21 @@ module tb_MouseMasterSM;
             $display("Error: BYTE_SENT should be 1, got %b", BYTE_SENT);
         
         // Check no state change before clock edge
-        if (uut.currentState !== uut.nextState)
+        if (uut.Curr_State !== uut.Next_State)
             $display("Error: State changed before clock cycle. Current: %h, Next: %h", 
-            uut.currentState, uut.nextState);
+            uut.Curr_State, uut.Next_State);
         
         // Wait for clock cycle
         #10;
         
         // Check state transition after clock edge
-        if (uut.currentState === uut.nextState)
+        if (uut.Curr_State === uut.Next_State)
             $display("Error: No state transition after clock cycle. Current: %h", 
-            uut.currentState);
+            uut.Curr_State);
         
         // Final test result
         if ((BYTE_SENT !== 1'b1) || 
-            (uut.currentState === uut.nextState)) begin
+            (uut.Curr_State === uut.Next_State)) begin
             $display("Test Case 5 Failed");
             $finish;
         end
@@ -245,20 +245,20 @@ module tb_MouseMasterSM;
         // Check RESET status and FSM state
         if (RESET !== 1'b1)
             $display("Error: RESET should be 1, got %b", RESET);
-        if (uut.currentState !== 4'b0000)
-            $display("Error: FSM should be in state 0000 during reset, got %b", uut.currentState);
+        if (uut.Curr_State !== 4'b0000)
+            $display("Error: FSM should be in state 0000 during reset, got %b", uut.Curr_State);
 
         // Deactivate RESET
         RESET = 1'b0;
         #10;  // Wait for one clock cycle
         
         // Check post-RESET behavior
-        if (uut.currentState === 4'b0000)
+        if (uut.Curr_State === 4'b0000)
             $display("Error: FSM didn't transition from reset state, still in 0000");
 
         // Final verification
         if ((RESET !== 1'b0) || 
-            (uut.currentState === 4'b0000)) begin
+            (uut.Curr_State === 4'b0000)) begin
             $display("Test Case 6 Failed");
             $finish;
         end
