@@ -1,15 +1,6 @@
-## Clock signal (PS/2 Clock)
-#set_property -dict {PACKAGE_PIN C17 IOSTANDARD LVCMOS33} [get_ports CLK_MOUSE]
-#create_clock -period 20.000 -name ps2_clock_pin -waveform {0.000 5.000} -add [get_ports CLK_MOUSE]
+#this is taken from the vgainterfacing directory from my projekt_mouse dir.
 
-### Data signal (PS/2 Data)
-#set_property -dict {PACKAGE_PIN B17 IOSTANDARD LVCMOS33} [get_ports DATA_MOUSE]
-### i think i forgot to add this line before lol
-#set_property PULLTYPE PULLUP [get_ports CLK_MOUSE]
-
-
-
-
+#clock
 # USB (PS/2)
  set_property PACKAGE_PIN C17 [get_ports CLK_MOUSE]                        
     set_property IOSTANDARD LVCMOS33 [get_ports CLK_MOUSE]
@@ -88,3 +79,38 @@ set_property PACKAGE_PIN E19 [get_ports LED_LIGHTS[1]]
 set_property PACKAGE_PIN U16 [get_ports LED_LIGHTS[0]]
     set_property IOSTANDARD LVCMOS33 [get_ports LED_LIGHTS[0]]
     
+#VGA
+set_property PACKAGE_PIN G19 [get_ports {COLOUR_OUT[0]}]
+    set_property IOSTANDARD LVCMOS33 [get_ports {COLOUR_OUT[0]}]
+
+set_property PACKAGE_PIN H19 [get_ports {COLOUR_OUT[1]}]
+    set_property IOSTANDARD LVCMOS33 [get_ports {COLOUR_OUT[1]}]
+
+set_property PACKAGE_PIN J19 [get_ports {COLOUR_OUT[2]}]
+    set_property IOSTANDARD LVCMOS33 [get_ports {COLOUR_OUT[2]}]
+
+set_property PACKAGE_PIN J17 [get_ports {COLOUR_OUT[3]}]
+    set_property IOSTANDARD LVCMOS33 [get_ports {COLOUR_OUT[3]}]
+
+set_property PACKAGE_PIN H17 [get_ports {COLOUR_OUT[4]}]
+    set_property IOSTANDARD LVCMOS33 [get_ports {COLOUR_OUT[4]}]
+
+set_property PACKAGE_PIN G17 [get_ports {COLOUR_OUT[5]}]
+    set_property IOSTANDARD LVCMOS33 [get_ports {COLOUR_OUT[5]}]
+
+set_property PACKAGE_PIN N18 [get_ports {COLOUR_OUT[6]}]
+    set_property IOSTANDARD LVCMOS33 [get_ports {COLOUR_OUT[6]}]
+
+set_property PACKAGE_PIN L18 [get_ports {COLOUR_OUT[7]}]
+    set_property IOSTANDARD LVCMOS33 [get_ports {COLOUR_OUT[7]}]
+
+set_property PACKAGE_PIN P19 [get_ports HS]
+    set_property IOSTANDARD LVCMOS33 [get_ports HS]
+
+set_property PACKAGE_PIN R19 [get_ports VS]
+    set_property IOSTANDARD LVCMOS33 [get_ports VS]
+    
+    
+#IR_LED
+set_property PACKAGE_PIN P18 [get_ports IR_LED]
+    set_property IOSTANDARD LVCMOS33 [get_ports IR_LED]

@@ -33,7 +33,7 @@ module TopModule(
     output [7:0] LED_OUT,
     
     //LEDs
-    output [15:0] LED_LIGHTS
+    output [15:0] LED_LIGHTS,
 
     //VGA
     output HS,               // Horizontal Sync for VGA
@@ -64,8 +64,8 @@ module TopModule(
         .BUS_WE(BUS_WE),
         .ROM_ADDRESS(ROM_ADDRESS),
         .ROM_DATA(ROM_DATA),
-        .BUS_INTERRUPT_RAISE(BUS_INTERRUPT_RAISE),
-        .BUS_INTERRUPT_ACK(BUS_INTERRUPT_ACK)
+        .BUS_INTERRUPTS_RAISE(BUS_INTERRUPTS_RAISE),
+        .BUS_INTERRUPTS_ACK(BUS_INTERRUPTS_ACK)
     );
     
     

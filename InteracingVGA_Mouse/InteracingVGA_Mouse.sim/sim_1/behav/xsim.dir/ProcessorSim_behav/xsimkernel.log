@@ -2,3 +2,6 @@ Running: xsim.dir/ProcessorSim_behav/xsimk -simmode gui -wdb ProcessorSim_behav.
 Design successfully loaded
 Design Loading Memory Usage: 93244 KB (Peak: 93288 KB)
 Design Loading CPU Usage: 20 ms
+Simulation completed
+Simulation Memory Usage: 232512 KB (Peak: 298048 KB)
+Simulation CPU Usage: 20 ms
