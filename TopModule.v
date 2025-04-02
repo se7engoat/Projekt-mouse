@@ -24,35 +24,22 @@ module TopModule(
     input CLK,
     input RESET,
     input SWITCH,
-
-    //mouse
     inout CLK_MOUSE,
     inout DATA_MOUSE,
-    
-    //Seven Segment
     output [3:0] SEG_SELECT,
     output [7:0] HEX_OUT,
-    
-    //LEDs
     output [15:0] LED_OUT,
-
-    //VGA
-    output HS,               // Horizontal Sync for VGA
-    output VS,               // Vertical Sync for VGA
-    output [7:0] COLOUR_OUT  // VGA Colour Output
+    output HS,
+    output VS,
+    output [7:0] COLOUR_OUT
     
     );
 
-    //IO bus
     wire [7:0] BusData;
     wire [7:0] BusAddr;
     wire BusWE;
-    
-    //Interrupt bus
     wire [1:0] BusInterruptsRaise;
     wire [1:0] BusInterruptsAck;
-
-    //Instruction bus
     wire [7:0] RomAddress;
     wire [7:0] RomData;
 
@@ -125,20 +112,20 @@ module TopModule(
         .LEDS(LED_OUT)
     );
 
-    SwitchPeripheral switch (
+    BusInterfaceSwitch switch (
         .CLK(CLK),
         .RESET(RESET),
-        .SWITCH_IN(SWITCH),
         .BUS_DATA(BusData),
         .BUS_ADDR(BusAddr),
-        .BUS_WE(BusWE)
+        .BUS_WE(BusWE),
+        .SWITCH_IN(SWITCH),
     );
     
     VGA_Driver vga(
         .CLK(CLK),
         .RESET(RESET),
-        .BUS_DATA(BusData),
         .BUS_ADDR(BusAddr),
+        .BUS_DATA(BusData),
         .BUS_WE(BusWE),
         .COLOUR_OUT(COLOUR_OUT),
         .HS(HS),

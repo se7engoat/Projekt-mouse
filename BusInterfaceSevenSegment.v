@@ -24,11 +24,9 @@
 module BusInterfaceSevenSegment(
     input CLK,
     input RESET,
-    //Bus control signals
     inout [7:0] BUS_ADDR,
     inout [7:0] BUS_DATA,
     inout BUS_WE,
-    //IO signals
     output [3:0] SEG_SELECT,
     output [7:0] HEX_OUT
     );

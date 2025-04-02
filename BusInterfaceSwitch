@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module SwitchPeripheral(
+module BusInterfaceSwitch(
     input CLK,
     input RESET,
     inout [7:0] BUS_DATA,

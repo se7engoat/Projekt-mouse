@@ -20,10 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module Timer(
-    //standard signals
     input CLK,
     input RESET,
-    //BUS signals
     inout [7:0] BUS_DATA,
     input [7:0] BUS_ADDR,
     input BUS_WE,

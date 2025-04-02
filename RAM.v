@@ -21,9 +21,7 @@
 
 
 module RAM(
-    //standard signals
     input CLK,
-    //BUS signals
     inout [7:0] BUS_DATA,
     input [7:0] BUS_ADDR,
     input BUS_WE

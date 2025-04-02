@@ -20,9 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module ROM(
-    //standard signals
     input CLK,
-    //BUS signals
     output reg [7:0] DATA,
     input [7:0] ADDR
 );
