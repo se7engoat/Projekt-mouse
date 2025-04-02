@@ -24,57 +24,62 @@
 module BusInterfaceSevenSegment(
     input CLK,
     input RESET,
-    
     //Bus control signals
     inout [7:0] BUS_ADDR,
     inout [7:0] BUS_DATA,
     inout BUS_WE,
     //IO signals
-    output SEG_SELECT,
-    output LED_OUT
-    
+    output [3:0] SEG_SELECT,
+    output [7:0] HEX_OUT
     );
-    
-    reg [15:0] segment7;
+
+    parameter [7:0] BaseAddr = 8'hD0;
+    parameter AddrWidth = 1;
+    reg [15:0] segment7_Input;
+
     SevenSegmentWrapper SevenSegmentWrapper (
         .CLK(CLK),
-        .NUM0(segment7[15:12]),
-        .NUM1(segment7[11:8]),
-        .NUM2(segment7[7:4]),
-        .NUM3(segment7[3:0]),
-        .LED_OUT(LED_OUT),
+        .DIGIT_IN(segment7_Input),
+        .HEX_OUT(HEX_OUT),
         .SEG_SELECT(SEG_SELECT)
     );
     
-    parameter BaseAddr = 8'hD0;
-    parameter AddrWidth = 1;
     
-    //Tristate wires
-    reg [7:0] BufferedDataBus; 
-    reg [7:0] DataOut;
-    reg BusInterfaceWE;
     
-    assign BUS_DATA =  BusInterfaceWE ? DataOut : 8'hZZ; 
-    assign BufferedDataOut = BUS_DATA;
+    // //Tristate wires
+    // reg [7:0] BufferedDataBus; 
+    // reg [7:0] DataOut;
+    // reg BusInterfaceWE;
     
-    reg [7:0] Memory [(2**AddrWidth) - 1:0];
+    // assign BUS_DATA =  BusInterfaceWE ? DataOut : 8'hZZ; 
+    // assign BufferedDataOut = BUS_DATA;
     
-    always @(posedge CLK) begin
-        //dumping values from the memory into segments
-        segment7[7:0] <= Memory[0]; //Last two segments
-        segment7[15:8] <= Memory[1]; //First two segments
-        
-        //Check target device
-        if ((BUS_ADDR >= BaseAddr) && (BUS_ADDR < BaseAddr + (2**AddrWidth))) begin
-            if (BUS_WE) begin
-                Memory[BUS_ADDR[3:0]] <= BufferedDataBus;
-                BusInterfaceWE <= 1'b0;
-            end else
-                BusInterfaceWE <= 1'b1;
-        end else
-            BusInterfaceWE <= 1'b0;
+    // reg [7:0] Memory [(2**AddrWidth) - 1:0];
+    
+    
+        // segment7[7:0] <= Memory[0]; //Last two segments
+        // segment7[15:8] <= Memory[1]; //First two segments
+    
+    //     if ((BUS_ADDR >= BaseAddr) && (BUS_ADDR < BaseAddr + (2**AddrWidth))) begin
+    //         if (BUS_WE) begin
+    //             Memory[BUS_ADDR[3:0]] <= BufferedDataBus;
+    //             BusInterfaceWE <= 1'b0;
+    //         end else
+    //             BusInterfaceWE <= 1'b1;
+    //     end else
+    //         BusInterfaceWE <= 1'b0;
             
-        DataOut = Memory[BUS_DATA[3:0]];
+    //     DataOut = Memory[BUS_DATA[3:0]];
+
+    always @(posedge CLK) begin
+        if (RESET)
+            segment7_Input <= 0;
+        else if (BUS_WE) begin
+            if (BUS_ADDR == BaseAddr)
+                segment7_Input[15:8] <= BUS_DATA; //First two segments
+            else if (BUS_ADDR == BaseAddr + 1)
+                segment7_Input[7:0] <= BUS_DATA; //Last two segments
+        end
     end
 endmodule
 

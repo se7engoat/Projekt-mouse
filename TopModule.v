@@ -23,6 +23,7 @@
 module TopModule(
     input CLK,
     input RESET,
+    input SWITCH,
 
     //mouse
     inout CLK_MOUSE,
@@ -30,10 +31,10 @@ module TopModule(
     
     //Seven Segment
     output [3:0] SEG_SELECT,
-    output [7:0] LED_OUT,
+    output [7:0] HEX_OUT,
     
     //LEDs
-    output [15:0] LED_LIGHTS,
+    output [15:0] LED_OUT,
 
     //VGA
     output HS,               // Horizontal Sync for VGA
@@ -43,91 +44,102 @@ module TopModule(
     );
 
     //IO bus
-    wire [7:0] BUS_DATA;
-    wire [7:0] BUS_ADDR;
-    wire BUS_WE;
+    wire [7:0] BusData;
+    wire [7:0] BusAddr;
+    wire BusWE;
     
     //Interrupt bus
-    wire [1:0] BUS_INTERRUPT_ACK;
-    wire [1:0] BUS_INTERRUPT_RAISE;
+    wire [1:0] BusInterruptsRaise;
+    wire [1:0] BusInterruptsAck;
 
     //Instruction bus
-    wire [7:0] ROM_ADDRESS;
-    wire [7:0] ROM_DATA;
+    wire [7:0] RomAddress;
+    wire [7:0] RomData;
 
 
     Processor CPU (
         .CLK(CLK),
         .RESET(RESET),
-        .BUS_DATA(BUS_DATA),
-        .BUS_ADDR(BUS_ADDR),
-        .BUS_WE(BUS_WE),
-        .ROM_ADDRESS(ROM_ADDRESS),
-        .ROM_DATA(ROM_DATA),
-        .BUS_INTERRUPTS_RAISE(BUS_INTERRUPTS_RAISE),
-        .BUS_INTERRUPTS_ACK(BUS_INTERRUPTS_ACK)
+        .BUS_DATA(BusData),
+        .BUS_ADDR(BusAddr),
+        .BUS_WE(BusWE),
+        .ROM_ADDRESS(RomAddress),
+        .ROM_DATA(RomData),
+        .BUS_INTERRUPTS_RAISE(BusInterruptsRaise),
+        .BUS_INTERRUPTS_ACK(BusInterruptsAck)
     );
     
     
-    RAM Memory(
+    RAM ram(
         .CLK(CLK),
-        .BUS_DATA(BUS_DATA),
-        .BUS_ADDR(BUS_ADDR),
-        .BUS_WE(BUS_WE)
+        .BUS_DATA(BusData),
+        .BUS_ADDR(BusAddr),
+        .BUS_WE(BusWE)
     );
     
-    ROM ROM(
+    ROM rom(
         .CLK(CLK),
-        .DATA(ROM_DATA),
-        .ADDR(ROM_ADDRESS)
+        .DATA(RomData),
+        .ADDR(RomAddress)
     );
     
-    Timer Timer(
+    Timer timer(
         .CLK(CLK),
         .RESET(RESET),
-        .BUS_DATA(BUS_DATA),
-        .BUS_ADDR(BUS_ADDR),
-        .BUS_WE(BUS_WE),
-        .BUS_INTERRUPT_RAISE(BUS_INTERRUPT_RAISE[1]),
-        .BUS_INTERRUPT_ACK(BUS_INTERRUPT_ACK[1])
+        .BUS_DATA(BusData),
+        .BUS_ADDR(BusAddr),
+        .BUS_WE(BusWE),
+        .BUS_INTERRUPT_RAISE(BusInterruptsRaise[1]),
+        .BUS_INTERRUPT_ACK(BusInterruptsAck[1])
     );
     
-    BusInterfaceSevenSegment SevenSegment(
+    BusInterfaceSevenSegment seg7(
         .CLK(CLK),
-        .BUS_ADDR(BUS_ADDR),
-        .BUS_DATA(BUS_DATA),
-        .BUS_WE(BUS_WE),
+        .RESET(RESET),
+        .BUS_ADDR(BusAddr),
+        .BUS_DATA(BusData),
+        .BUS_WE(BusWE),
         .SEG_SELECT(SEG_SELECT),
-        .LED_OUT(LED_OUT)
+        .HEX_OUT(HEX_OUT)
     );
     
-    BusInterfaceMouse MouseInterface(
+    BusInterfaceMouse mouse(
         .RESET(RESET),  
         .CLK(CLK),
-        .BUS_ADDR(BUS_ADDR),
-        .BUS_DATA(BUS_DATA),
-        .BUS_WE(BUS_WE),  
+        .BUS_ADDR(BusAddr),
+        .BUS_DATA(BusData),
+        .BUS_WE(BusWE),  
         .CLK_MOUSE(CLK_MOUSE),    
         .DATA_MOUSE(DATA_MOUSE), 
-        .BUS_INTERRUPT_RAISE(BUS_INTERRUPT_RAISE[0]),
-        .BUS_INTERRUPT_ACK(BUS_INTERRUPT_ACK[0])
+        .BUS_INTERRUPT_RAISE(BusInterruptsRaise[0]),
+        .BUS_INTERRUPT_ACK(BusInterruptsAck[0])
     );
     
     
-    BusInterfaceLED LED_IO(
-        .CLK(CLK),
-        .BUS_DATA(BUS_DATA),
-        .BUS_ADDR(BUS_ADDR),
-        .BUS_WE(BUS_WE),
-        .LED_LIGHTS(LED_LIGHTS)
-    );
-    
-    VGA_Driver vga (
+    BusInterfaceLED led(
         .CLK(CLK),
         .RESET(RESET),
-        .BUS_DATA(BUS_DATA),
-        .BUS_ADDR(BUSBusAddr),
-        .BUS_WE(BUS_WE),
+        .BUS_DATA(BusData),
+        .BUS_ADDR(BusAddr),
+        .BUS_WE(BusWE),
+        .LEDS(LED_OUT)
+    );
+
+    SwitchPeripheral switch (
+        .CLK(CLK),
+        .RESET(RESET),
+        .SWITCH_IN(SWITCH),
+        .BUS_DATA(BusData),
+        .BUS_ADDR(BusAddr),
+        .BUS_WE(BusWE)
+    );
+    
+    VGA_Driver vga(
+        .CLK(CLK),
+        .RESET(RESET),
+        .BUS_DATA(BusData),
+        .BUS_ADDR(BusAddr),
+        .BUS_WE(BusWE),
         .COLOUR_OUT(COLOUR_OUT),
         .HS(HS),
         .VS(VS)

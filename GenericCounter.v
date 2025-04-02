@@ -21,26 +21,21 @@
 
 
 module GenericCounter(
-    CLK,
-    RESET,
-    ENABLE,
-    TRIG_OUT,
-    COUNT
+    input CLK;
+    input RESET;
+    input ENABLE;
+    output reg TRIG_OUT = 0;
+    output reg [COUNTER_WIDTH-1:0] COUNT = 0;
     );
     parameter COUNTER_MAX = 9;
     parameter COUNTER_WIDTH = 4;
     
-    input CLK;
-    input RESET;
-    input ENABLE;
-    output TRIG_OUT;
-    output [COUNTER_WIDTH-1:0] COUNT;
+    
     
     //signals that trigger and operate with the TRIG_OUT and COUNT port
     reg [COUNTER_WIDTH-1:0] counter;
     reg trigger_out;
     
-    //Synchronous logic for counter;
     always @(posedge CLK) begin
         if (RESET)
             counter <= 0;

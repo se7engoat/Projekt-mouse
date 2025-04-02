@@ -22,15 +22,15 @@
 
 module SevenSegmentWrapper(
         input CLK,
-        input [3:0] NUM0, NUM1, NUM2, NUM3,
-        output [7:0] LED_OUT,
+        input [15:0] DIGIT_IN,
+        output [7:0] HEX_OUT,
         output [3:0] SEG_SELECT
     );
     
     // Defining trigger output, strobe output and mutiplexer output
-    wire Bit17TrigOut;
+    wire ClockTrigger;
     wire [1:0] StrobeCount;
-    wire [3:0] MuxOut;
+    wire [4:0] MuxOut;
     
     //Instantiating a 17 bit counter. This will provide a refresh rate of 1kHz for the 7 seg display.
     // (On board clock is 100MHz) 
@@ -38,11 +38,11 @@ module SevenSegmentWrapper(
         .COUNTER_WIDTH(17),
         .COUNTER_MAX(99999)
         )
-        Bit17Counter (
+        ClockDivider (
         .CLK(CLK),
         .RESET(1'b0),
         .ENABLE(1'b1),
-        .TRIG_OUT(Bit17TrigOut)
+        .TRIG_OUT(ClockTrigger)
     );
     
     //Instantiating a 2 bit counter. This counter will provide the strobe output to
@@ -52,21 +52,21 @@ module SevenSegmentWrapper(
         .COUNTER_WIDTH(2),
         .COUNTER_MAX(3)
         )
-        Bit2Counter (
+        DigitSelector (
         .CLK(CLK),
         .RESET(1'b0),
-        .ENABLE(Bit17TrigOut),
+        .ENABLE(ClockTrigger),
         .COUNT(StrobeCount)
     );
     
     // Instantiating a multiplexer. This will output one of the 4 hex digits, corresponding
     // to the mouse coordinates, depending on the strobe output value.
-    MUX Mux(
+    MUX SegmentSelector(
         .CONTROL(StrobeCount),
-        .IN0(NUM0),
-        .IN1(NUM1),
-        .IN2(NUM2),
-        .IN3(NUM3),
+        .IN0({1'b0, VALUE_IN[3:0]}),
+        .IN1({1'b0, VALUE_IN[7:4]}),
+        .IN2({1'b0, VALUE_IN[11:8]}),
+        .IN3({1'b0, VALUE_IN[15:12]}),
         .OUT(MuxOut)
     );
     
@@ -75,10 +75,10 @@ module SevenSegmentWrapper(
     // corresponds to which pin should be lit up in the seven segment display.
     SevenSegment Seg7 (
         .SEG_SELECT_IN(StrobeCount),
-        .BIN_IN(MuxOut),
-        .DOT_IN(1'b0),
+        .BIN_IN(MuxOut[3:0]),
+        .DOT_IN(MuxOut[4]),
         .SEG_SELECT_OUT(SEG_SELECT),
-        .HEX_OUT(LED_OUT)
+        .HEX_OUT(HEX_OUT)
     );
     
 endmodule

@@ -21,44 +21,45 @@
 
 module MouseReceiver(
     // Standard Inputs
-    input           RESET,
-    input           CLK,
-    input           CLK_MOUSE_IN,
-    input           DATA_MOUSE_IN,
-    input           READ_ENABLE,
-    output [7:0]    BYTE_READ,
-    output [1:0]    BYTE_ERROR_CODE,
-    output          BYTE_READY
+    input RESET,
+    input CLK,
+    input CLK_MOUSE_IN,
+    input DATA_MOUSE_IN,
+    input READ_ENABLE,
+    output [7:0] BYTE_READ,
+    output [1:0] BYTE_ERROR_CODE,
+    output BYTE_READY,
+    output [3:0] STATE
 );
     // Clock edge detection
-    reg clkMouseDelayed;
+    reg ClkMouseDelayed;
     always @(posedge CLK)
-        clkMouseDelayed <= CLK_MOUSE_IN;
+        ClkMouseDelayed <= CLK_MOUSE_IN;
 
     // State machine registers
-    reg [2:0]   currentState, nextState;
-    reg [7:0]   currentShiftReg, nextShiftReg;
-    reg [3:0]   currentBitCounter, nextBitCounter;
-    reg         currentByteReady, nextByteReady;
-    reg [1:0]   currentErrorCode, nextErrorCode;
-    reg [15:0]  currentTimeout, nextTimeout;
+    reg [2:0]   CurrState, NextState;
+    reg [7:0]   CurrShiftReg, NextShiftReg;
+    reg [3:0]   CurrBitCounter, NextBitCounter;
+    reg         CurrByteReady, NextByteReady;
+    reg [1:0]   CurrErrorCode, NextErrorCode;
+    reg [15:0]  CurrTimeout, NextTimeout;
 
     // Sequential logic
     always @(posedge CLK) begin
         if (RESET) begin
-            currentState       <= 3'b0;
-            currentShiftReg    <= 8'h00;
-            currentBitCounter <= 0;
-            currentByteReady   <= 1'b0;
-            currentErrorCode  <= 2'b00;
-            currentTimeout     <= 0;
+            CurrState       <= 3'b0;
+            CurrShiftReg    <= 8'h00;
+            CurrBitCounter <= 0;
+            CurrByteReady   <= 1'b0;
+            CurrErrorCode  <= 2'b00;
+            CurrTimeout     <= 0;
         end else begin
-            currentState       <= nextState;
-            currentShiftReg    <= nextShiftReg;
-            currentBitCounter <= nextBitCounter;
-            currentByteReady   <= nextByteReady;
-            currentErrorCode  <= nextErrorCode;
-            currentTimeout    <= nextTimeout;
+            CurrState       <= NextState;
+            CurrShiftReg    <= NextShiftReg;
+            CurrBitCounter <= NextBitCounter;
+            CurrByteReady   <= NextByteReady;
+            CurrErrorCode  <= NextErrorCode;
+            CurrTimeout    <= NextTimeout;
         end
     end
 
@@ -66,91 +67,86 @@ module MouseReceiver(
     // Combinatorial logic
     always @(*) begin
         // Defaults
-        nextState        = currentState;
-        nextShiftReg     = currentShiftReg;
-        nextBitCounter   = currentBitCounter;
-        nextByteReady    = 1'b0;
-        nextErrorCode    = currentErrorCode;
-        nextTimeout     = currentTimeout + 1'b1;
+        NextState        = CurrState;
+        NextShiftReg     = CurrShiftReg;
+        NextBitCounter   = CurrBitCounter;
+        NextByteReady    = 1'b0;
+        NextErrorCode    = CurrErrorCode;
+        NextTimeout     = CurrTimeout + 1'b1;
 
         // State transitions
-        case (currentState)
+        case (CurrState)
             // IDLE
             IDLE: begin
-                if (READ_ENABLE & clkMouseDelayed & ~CLK_MOUSE_IN & ~DATA_MOUSE_IN) begin
-                    nextState     = RECEIVE;
-                    nextErrorCode = 2'b00;
+                if (READ_ENABLE & ClkMouseDelayed & ~CLK_MOUSE_IN & ~DATA_MOUSE_IN) begin
+                    NextState     = RECEIVE;
+                    NextErrorCode = 2'b00;
                 end
-                nextBitCounter = 0;
+                NextBitCounter = 0;
             end
 
             // RECEIVE BITS
             RECEIVE: begin
-                if (currentTimeout == 50000)
-                    nextState = IDLE;
-                else if (currentBitCounter == 8) begin
-                    nextState      = PARITY_CHECK;
-                    nextBitCounter = 0;
-                end else if (clkMouseDelayed & ~CLK_MOUSE_IN) begin //shift byte in
-                    nextShiftReg[6:0] = currentShiftReg[7:1];
-                    nextShiftReg[7]  = DATA_MOUSE_IN;
-                    nextBitCounter   = currentBitCounter + 1;
-                    nextTimeout     = 0;
+                if (CurrTimeout == 50000)
+                    NextState = IDLE;
+                else if (CurrBitCounter == 8) begin
+                    NextState      = PARITY_CHECK;
+                    NextBitCounter = 0;
+                end else if (ClkMouseDelayed & ~CLK_MOUSE_IN) begin //shift byte in
+                    NextShiftReg[6:0] = CurrShiftReg[7:1];
+                    NextShiftReg[7]  = DATA_MOUSE_IN;
+                    NextBitCounter   = CurrBitCounter + 1;
+                    NextTimeout     = 0;
                 end
             end
 
             // PARITY CHECK
             PARITY_CHECK: begin
-                if (currentTimeout == 50000)
-                    nextState = IDLE;
-                else if (clkMouseDelayed & ~CLK_MOUSE_IN) begin
-                    if (DATA_MOUSE_IN != ~^currentShiftReg[7:0])
-                        nextErrorCode[0] = 1'b1;
-                    nextBitCounter = 0;
-                    nextState      = STOP_CHECK;
-                    nextTimeout    = 0;
+                if (CurrTimeout == 50000)
+                    NextState = IDLE;
+                else if (ClkMouseDelayed & ~CLK_MOUSE_IN) begin
+                    if (DATA_MOUSE_IN != ~^CurrShiftReg[7:0])
+                        NextErrorCode[0] = 1'b1;
+                    NextBitCounter = 0;
+                    NextState      = STOP_CHECK;
+                    NextTimeout    = 0;
                 end
             end
 
             // STOP BIT CHECK
             STOP_CHECK: begin
-                if (currentTimeout == 100000)
-                    nextState = IDLE;
-                else if (clkMouseDelayed & ~CLK_MOUSE_IN) begin
-                    if (DATA_MOUSE_IN)
-                        nextErrorCode[1] = 1'b0;
-                    else
-                        nextErrorCode[1] = 1'b0;
+                if (CurrTimeout == 50000)
+                    NextState = IDLE;
+                else if (ClkMouseDelayed & ~CLK_MOUSE_IN) begin
+                    if (~DATA_MOUSE_IN)
+                        NextErrorCode[1] = 1'b1;
                     
-                    nextState       = READY;
-                    nextTimeout     = 0;
+                    NextBitCounter = 0;
+                    NextState       = READY;
+                    NextTimeout     = 0;
                 end
             end
 
             // BYTE READY
             READY: begin
-                if (currentTimeout == 100000) //1ms timeout for 100MHz clock
-                    nextState = IDLE;
-                if (CLK_MOUSE_IN & DATA_MOUSE_IN) begin
-                    nextByteReady = 1'b1;
-                    nextState     = IDLE;
-                end
+                NextState = IDLE;
+                NextByteReady = 1'b1;
             end
 
             default: begin
-                nextState       = IDLE;
-                nextShiftReg    = 8'h00;
-                nextBitCounter  = 0;
-                nextByteReady   = 1'b0;
-                nextErrorCode   = 2'b00;
-                nextTimeout     = 0;
+                NextState       = IDLE;
+                NextShiftReg    = 8'h00;
+                NextBitCounter  = 4'h0;
+                NextByteReady   = 1'b0;
+                NextErrorCode   = 2'b00;
+                NextTimeout     = 0;
             end
         endcase
     end
 
-    // Outputs (unchanged ports)
-    assign BYTE_READY      = currentByteReady;
-    assign BYTE_READ       = currentShiftReg;
-    assign BYTE_ERROR_CODE = currentErrorCode;
+    assign BYTE_READY      = CurrByteReady;
+    assign BYTE_READ       = CurrShiftReg;
+    assign BYTE_ERROR_CODE = CurrErrorCode;
+    assing STATE          = CurrState;
 
 endmodule

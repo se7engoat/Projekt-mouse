@@ -22,12 +22,10 @@
 
 module BusInterfaceMouse(
       input RESET,  
-      input CLK,  
-      //BUS Signals
+      input CLK,
       input [7:0] BUS_ADDR,
       output [7:0] BUS_DATA,
-      input BUS_WE,
-      //IO - Mouse side  
+      input BUS_WE, 
       inout CLK_MOUSE,    
       inout DATA_MOUSE, 
       output BUS_INTERRUPT_RAISE,
@@ -37,12 +35,9 @@ module BusInterfaceMouse(
     // Mouse Outputs
 	wire [7:0] MouseStatus;
 	wire [7:0] MouseX;
-//	wire [7:0] MouseDx;
 	wire [7:0] MouseY;
-//	wire [7:0] MouseDy;
-	wire [7:0] MouseZ;
-    //Mouse Interrupt signal
     wire SendInterrupt;
+
     MouseTransceiver MT (
         .RESET(RESET),
         .CLK(CLK),
@@ -51,8 +46,7 @@ module BusInterfaceMouse(
         .MouseStatus(MouseStatus),
         .MouseX(MouseX),
         .MouseY(MouseY),
-        .MouseZ(MouseZ),
-        .SendInterrupt(SendInterrupt)
+        .INTR(SendInterrupt)
     );
     
     //Mouse signal to raise an interrupt when it is moved
@@ -71,40 +65,28 @@ module BusInterfaceMouse(
     //The bus is tristate
     //need to check if the bus is being written to by the CPU, if not, write enable and then send
     
-    wire [7:0] BusDataBuffer;
     reg [7:0] BusOut;
     reg BusInterfaceWE;
     assign BUS_DATA = (BusInterfaceWE) ? BusOut : 8'hZZ;
-    assign BusDataBuffer = BUS_DATA;
     
     // Interface design
     parameter BaseAddr = 8'hA0;
-    parameter AddrWidth = 3;     //width of bus depends on bits we sending from mouse, 5 bits, so width = 3
-    reg [7:0] Memory [2**(AddrWidth)-1 : 0]; //Byte Addressable memory. 
-    //Totally 2**(3) memory elements each of size 8bits.
-    
+    reg [7:0] MouseBytes [4:0]; //Byte Addressable memory. 
+    assign MouseBytes[0] = MouseStatus;
+    assign MouseBytes[1] = MouseX;
+    assign MouseBytes[2] = MouseY;
+
     always @(posedge CLK) begin
-        //Mouse Data is sent
-        Memory[0] <= MouseStatus;
-        Memory[1] <= MouseX;
-        Memory[2] <= MouseY;
-        Memory[3] <= MouseZ;
-        
         //Checking if the right peripheral is called
-        if ((BUS_ADDR >= BaseAddr) & (BUS_ADDR < BaseAddr+ (2**AddrWidth))) begin
-            if (BUS_WE) begin
-                Memory[BUS_ADDR[3:0]] <= BusDataBuffer;
+        if ((BUS_ADDR >= BaseAddr) & (BUS_ADDR < BaseAddr + 3)) begin
+            if (BUS_WE)
                 BusInterfaceWE <= 1'b0;
-            end else 
+            else 
                 BusInterfaceWE <= 1'b1;
         end else
             BusInterfaceWE <= 1'b0; //If this is not the write peripheral do not write to it
         
-        BusOut <= Memory[BUS_ADDR[3:0]]; 
+        BusOut <= MouseBytes[BUS_ADDR[3:0]]; 
     end
-    
-    
-    
-    
-    
+
 endmodule
