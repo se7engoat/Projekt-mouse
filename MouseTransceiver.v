@@ -158,7 +158,7 @@ module MouseTransceiver(
 
     always@(posedge CLK) begin
         if(RESET) begin
-            MouseStatus <= 4'b0;
+            MouseStatus <= 0;
             MouseX <= mouseLimitX/2;
             MouseY <= mouseLimitY/2;
         end
@@ -176,9 +176,9 @@ module MouseTransceiver(
             if(MouseNewY < 0)
                 MouseY <= 0;
             else if(MouseNewY > (mouseLimitY-1))
-                tempMouseY <= mouseLimitY-1;
+                MouseY <= mouseLimitY-1;
             else
-                tempMouseY <= MouseNewY[7:0];      
+                MouseY <= MouseNewY[7:0];
         end
     end
 endmodule

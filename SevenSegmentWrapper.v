@@ -63,10 +63,10 @@ module SevenSegmentWrapper(
     // to the mouse coordinates, depending on the strobe output value.
     MUX SegmentSelector(
         .CONTROL(StrobeCount),
-        .IN0({1'b0, VALUE_IN[3:0]}),
-        .IN1({1'b0, VALUE_IN[7:4]}),
-        .IN2({1'b0, VALUE_IN[11:8]}),
-        .IN3({1'b0, VALUE_IN[15:12]}),
+        .IN0({1'b0, DIGIT_IN[3:0]}),
+        .IN1({1'b0, DIGIT_IN[7:4]}),
+        .IN2({1'b0, DIGIT_IN[11:8]}),
+        .IN3({1'b0, DIGIT_IN[15:12]}),
         .OUT(MuxOut)
     );
     

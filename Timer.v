@@ -108,7 +108,6 @@ module Timer(
             LastTime <= Timer;
         end else 
             TargetReached <= 1'b0;
-        end
     end
 
 

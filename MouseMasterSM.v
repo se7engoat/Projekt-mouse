@@ -72,8 +72,7 @@ module MouseMasterSM(
 	MOUSE_MODE_EN = 4'h9,
 	BYTE_SENT_ACK_10 = 4'hA,
 	BYTE_RECEIVED_11 = 4'hB,
-	SET_SAMPLE_RATE_200 = 4'hC,
-	;
+	SET_SAMPLE_RATE_200 = 4'hC;
 
 	//Sequential
 	always@(posedge CLK) begin
@@ -241,7 +240,7 @@ module MouseMasterSM(
 						Next_Dy = BYTE_READ;
 						Next_State 		= SET_SAMPLE_RATE_200;
 					end else
-						Next_State 		= IDLE;
+						Next_State 		= INIT;
 				end
 				Next_ReadEnable = 1'b1;
 			end

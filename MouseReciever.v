@@ -147,6 +147,6 @@ module MouseReceiver(
     assign BYTE_READY      = CurrByteReady;
     assign BYTE_READ       = CurrShiftReg;
     assign BYTE_ERROR_CODE = CurrErrorCode;
-    assing STATE          = CurrState;
+    assign STATE          = CurrState;
 
 endmodule

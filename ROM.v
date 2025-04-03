@@ -31,7 +31,7 @@ module ROM(
     reg [7:0] ROM [(2**RAMAddrWidth)-1:0];
 
     // Load program
-    initial $readmemh("/home/s2736992/Desktop/Projekt-mouse/Complete_Demo_ROM.txt", ROM);
+    initial $readmemh("C:/Users/s2736992/Desktop/Projekt-mouse/Complete_Demo_ROM.txt", ROM);
 
     //single port ram
     always @(posedge CLK)

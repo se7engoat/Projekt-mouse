@@ -71,7 +71,7 @@ module BusInterfaceMouse(
     
     // Interface design
     parameter BaseAddr = 8'hA0;
-    reg [7:0] MouseBytes [4:0]; //Byte Addressable memory. 
+    wire [7:0] MouseBytes [4:0]; //Byte Addressable memory. 
     assign MouseBytes[0] = MouseStatus;
     assign MouseBytes[1] = MouseX;
     assign MouseBytes[2] = MouseY;

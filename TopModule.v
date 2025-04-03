@@ -118,7 +118,7 @@ module TopModule(
         .BUS_DATA(BusData),
         .BUS_ADDR(BusAddr),
         .BUS_WE(BusWE),
-        .SWITCH_IN(SWITCH),
+        .SWITCH_IN(SWITCH)
     );
     
     VGA_Driver vga(

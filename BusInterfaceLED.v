@@ -23,9 +23,9 @@
 module BusInterfaceLED(
         input CLK,
         input RESET,
-        inout [7:0] BUS_DATA,
-        output [7:0] BUS_ADDR,
-        output BUS_WE,
+        input [7:0] BUS_DATA,
+        input [7:0] BUS_ADDR,
+        input BUS_WE,
         output reg [15:0] LEDS
     );
     
