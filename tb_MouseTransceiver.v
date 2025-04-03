@@ -6,7 +6,7 @@ module tb_MouseTransceiver;
     reg CLK;
     wire CLK_MOUSE;
     wire DATA_MOUSE;
-    wire [3:0] MouseStatus;
+    wire [7:0] MouseStatus;
     wire [7:0] MouseX;
     wire [7:0] MouseY;
     wire [7:0] MouseZ;

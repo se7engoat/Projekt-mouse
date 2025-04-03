@@ -23,7 +23,7 @@ module MouseTransceiver(
     input CLK,   
     inout CLK_MOUSE,    
     inout DATA_MOUSE,  
-    output reg [3:0] MouseStatus,               
+    output reg [7:0] MouseStatus,               
     output reg [7:0] MouseX,               
     output reg [7:0] MouseY,
     output INTR   
