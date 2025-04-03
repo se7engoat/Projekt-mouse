@@ -49,7 +49,7 @@ BLTQ 0x00;
 
 
 //Mouse instructions
-READ_regA 0xA0; //0x00 0xAO read Mouse status byte from base addr in memory to regA
+READ_regA 0xA0; //0x00 0xA0 read Mouse status byte from base addr in memory to regA
 LOAD_regA 0xC0; //0x02 0xC0 Load regA value to LED memory
 READ_regA 0x14; //0x00 0x14 read from RAM addr 0x14 - prev MouseX position
 READ_regB 0x15; //0x01 0x15 read from RAM addr 0x15 - prev MouseY position

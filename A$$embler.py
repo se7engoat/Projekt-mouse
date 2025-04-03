@@ -4,24 +4,39 @@ def readFile(file):
             with open(file, 'r') as f:
                 counter = 0
                 with open('Complete_Demo_ROM_assembled.txt', 'w') as out_file:
-                    for line in f:
-                        if line.strip().startswith("//"):
+                    for line in f: #reading each line in the file
+                        if line.strip().startswith("//"): #remove all the // in the line
                             continue
                         instruction = line.strip().replace(";", "")  # Strip special characters like ';'
-                        print(instruction)
-                        if instruction in Opcode:
-                            out_file.write(f"0x{hex(counter)[2:].zfill(2)}\n")
-                            out_file.write(f"{Opcode[instruction]}\n")
-                        else:
-                            out_file.write(f"{instruction}\n")
-                        counter += 1
+                        lineArr = []
+                        for element in instruction.split():
+                            if element.startswith("//"):
+                                break
+                            elif element == "0x85":
+                                lineArr.append("@0xFE 0x85\n")
+                            elif element == "0x5C":
+                                lineArr.append("@0xFF 0x5C\n")
+                            elif (element.startswith("0x")) or element in Opcode_mapping:
+                                lineArr.append("@0x" + hex(counter)[2:].upper().zfill(2))
+                                lineArr.append(element)
+                                counter += 1
+                            
+                                
+                        print(lineArr)
+                        for instr in lineArr:
+                            if(instr.startswith("@0x")):
+                                out_file.write(f"{instr}" + " ") #write the line addr of ROM and insert a white space
+                            elif(instr in Opcode_mapping):
+                                out_file.write(f"{Opcode_mapping[instr]}\n")
+                            else:
+                                out_file.write(f"{instr}\n")
             print("Writing is done.")
         except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f"An error occurred: {e}, counter: {counter}, line: {line}")
         
 
 
-Opcode = {
+Opcode_mapping = {
         #load and store instructions
         "READ_regA" : "0x00",
         "READ_regB" : "0x01",
