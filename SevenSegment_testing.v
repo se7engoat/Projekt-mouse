@@ -1,0 +1,80 @@
+`timescale 1ns / 1ps
+////////////////////////////////////////////////////////////////////////////////
+// Company:			UoE
+// Engineer:		
+// 
+// Create Date:		10:26:39 10/03/2012 
+// Design Name:		PS/2 Demo
+// Module Name:		seg7decoder
+// Project Name:	PS/2 Demo
+// Target Devices:	Digilent Basys2 100K
+// Tool versions:	Xilinx ISE WebPack 14.2
+// Description:		A decoder for the Basys2's 4-digit 7-segment display
+//
+// Dependencies:	none
+//
+// Revision: 
+//		Revision 1		-	Implementation complete
+// 		Revision 0.01	-	File Created
+// Additional Comments: 
+//	Interface:
+//		SEG_SELECT_IN:	Select line for which of the digits to
+//					operate
+//		BIN_IN:		Input data in BNN format.
+//		DOT_IN:		Input bit for the decimal point segment.
+//		SEG_SELECT_OUT:	4-bit positional code; selects one of the 4
+//					anodes of the display
+//		HEX_OUT:	Display control signals. Determines the symbol
+//					to be outputted.
+////////////////////////////////////////////////////////////////////////////////
+
+module SevenSegment(
+		input [1:0]	SEG_SELECT_IN,
+		input [3:0]	BIN_IN,
+		input DOT_IN,
+		output reg [3:0] SEG_SELECT_OUT,
+		output reg [7:0] HEX_OUT
+	);
+
+	always@(*) begin
+		SEG_SELECT_OUT = 4'b1111; // Default state (all off)
+		case(SEG_SELECT_IN)
+			2'b00:	SEG_SELECT_OUT = 4'b1110; // rightmost
+			2'b01:	SEG_SELECT_OUT = 4'b1101;
+			2'b10:	SEG_SELECT_OUT = 4'b1011;
+			2'b11:	SEG_SELECT_OUT = 4'b0111; // leftmost
+		endcase
+	end
+
+	always@(BIN_IN) begin
+        case(BIN_IN)
+            4'b0000: HEX_OUT[6:0] = 7'b1000000; // 0
+            4'b0001: HEX_OUT[6:0] = 7'b1111001; // 1
+            4'b0010: HEX_OUT[6:0] = 7'b0100100; // 2
+            4'b0011: HEX_OUT[6:0] = 7'b0110000; // 3
+            4'b0100: HEX_OUT[6:0] = 7'b0011001; // 4
+            4'b0101: HEX_OUT[6:0] = 7'b0010010; // 5
+            4'b0110: HEX_OUT[6:0] = 7'b0000010; // 6
+            4'b0111: HEX_OUT[6:0] = 7'b1111000; // 7
+            4'b1000: HEX_OUT[6:0] = 7'b0000000; // 8
+            4'b1001: HEX_OUT[6:0] = 7'b0011000; // 9
+
+             // Custom letters (L, R, F, B, etc.)
+            4'b1010: HEX_OUT[6:0] = 7'b1000111; // L (segments f, e, d)
+            4'b1011: HEX_OUT[6:0] = 7'b0101111; // R (segments a, b, g, e)
+            4'b1100: HEX_OUT[6:0] = 7'b0001110; // F (segments a, f, g, b)
+            4'b1101: HEX_OUT[6:0] = 7'b0011111; // B (segments c, d, e, g)
+            4'b1110: HEX_OUT[6:0] = 7'b0111001; // FR (custom combo)
+            4'b1111: HEX_OUT[6:0] = 7'b0110001; // FL (custom combo)
+            
+            // Additional custom letters (if needed)
+            // Example: 'I' (just the middle segments)
+            // 4'bxxxx: HEX_OUT[6:0] = 7'b1110111; // I
+            
+            default: HEX_OUT[6:0] = 7'b1111111; // OFF (all segments off)
+        endcase
+
+        HEX_OUT[7] = ~DOT_IN;
+	end
+	
+endmodule
