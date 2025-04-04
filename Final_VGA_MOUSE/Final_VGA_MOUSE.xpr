@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Product Version: Vivado v2015.2 (64-bit)              -->
+<!--                                                         -->
+<!-- Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.   -->
+
+<Project Version="7" Minor="5" Path="C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.xpr">
+  <DefaultLaunch Dir="$PRUNDIR"/>
+  <Configuration>
+    <Option Name="Id" Val="613ce1488cac49ab85943061c6d3971e"/>
+    <Option Name="Part" Val="xc7a35tcpg236-1"/>
+    <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
+    <Option Name="BoardPart" Val=""/>
+    <Option Name="ActiveSimSet" Val="sim_1"/>
+    <Option Name="DefaultLib" Val="xil_defaultlib"/>
+    <Option Name="EnableCoreContainer" Val="FALSE"/>
+    <Option Name="EnableCoreContainerForIPI" Val="FALSE"/>
+  </Configuration>
+  <FileSets Version="1" Minor="31">
+    <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+      <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/MouseTransmitter.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/MouseTransmitter.v"/>
+          <Attr Name="ImportTime" Val="1743601374"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/GenericCounter.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/GenericCounter.v"/>
+          <Attr Name="ImportTime" Val="1743599146"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/MUX.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/MUX.v"/>
+          <Attr Name="ImportTime" Val="1743597779"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/MouseReciever.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/MouseReciever.v"/>
+          <Attr Name="ImportTime" Val="1743602204"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/MouseMasterSM.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/MouseMasterSM.v"/>
+          <Attr Name="ImportTime" Val="1743604402"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/SevenSegment.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/SevenSegment.v"/>
+          <Attr Name="ImportTime" Val="1743598505"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/SevenSegmentWrapper.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/SevenSegmentWrapper.v"/>
+          <Attr Name="ImportTime" Val="1743524769"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/VGA_Sig_Gen.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/VGA_Sig_Gen.v"/>
+          <Attr Name="ImportTime" Val="1742946197"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/MouseTransceiver.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/MouseTransceiver.v"/>
+          <Attr Name="ImportTime" Val="1743605721"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/Frame_Buffer.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/Frame_Buffer.v"/>
+          <Attr Name="ImportTime" Val="1742946197"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/ALU.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/ALU.v"/>
+          <Attr Name="ImportTime" Val="1743344951"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/BusInterfaceMouse.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/BusInterfaceMouse.v"/>
+          <Attr Name="ImportTime" Val="1743606032"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/BusInterfaceSevenSegment.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/BusInterfaceSevenSegment.v"/>
+          <Attr Name="ImportTime" Val="1743607659"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/ROM.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/ROM.v"/>
+          <Attr Name="ImportTime" Val="1743607594"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/BusInterfaceLED.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/BusInterfaceLED.v"/>
+          <Attr Name="ImportTime" Val="1743597462"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/VGA_Driver.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/VGA_Driver.v"/>
+          <Attr Name="ImportTime" Val="1742946197"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/Timer.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/Timer.v"/>
+          <Attr Name="ImportTime" Val="1743607616"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/Processor.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/Processor.v"/>
+          <Attr Name="ImportTime" Val="1743607304"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/RAM.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/RAM.v"/>
+          <Attr Name="ImportTime" Val="1743607566"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/BusInterfaceSwitch.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/TopModule.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/TopModule.v"/>
+          <Attr Name="ImportTime" Val="1743607932"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Projekt-mouse/ProcessorSim.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/ProcessorSim.v"/>
+          <Attr Name="ImportTime" Val="1742946197"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/AS2/ps2_master.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/sim_1/sources_1/imports/imports/AS2/ps2_master.v"/>
+          <Attr Name="ImportTime" Val="1741905926"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="TopModule"/>
+        <Option Name="TopAutoSet" Val="TRUE"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+      <Filter Type="Constrs"/>
+      <File Path="$PSRCDIR/constrs_1/imports/Projekt-mouse/MouseInterface.xdc">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/MouseInterface.xdc"/>
+          <Attr Name="ImportTime" Val="1743608505"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="ConstrsType" Val="XDC"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1">
+      <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sim_1/imports/new/Basic_processor_tb.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Desktop/Projekt-mouse/sim_1/sim_1/imports/new/Basic_processor_tb.v"/>
+          <Attr Name="ImportTime" Val="1741635854"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="Basic_processor_tb"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="SrcSet" Val="sources_1"/>
+      </Config>
+    </FileSet>
+  </FileSets>
+  <Simulators>
+    <Simulator Name="XSim">
+      <Option Name="Description" Val="Vivado Simulator"/>
+      <Option Name="CompiledLib" Val="0"/>
+    </Simulator>
+    <Simulator Name="ModelSim">
+      <Option Name="Description" Val="ModelSim Simulator"/>
+    </Simulator>
+    <Simulator Name="Questa">
+      <Option Name="Description" Val="Questa Advanced Simulator"/>
+    </Simulator>
+    <Simulator Name="IES">
+      <Option Name="Description" Val="Incisive Enterprise Simulator (IES)"/>
+    </Simulator>
+    <Simulator Name="VCS">
+      <Option Name="Description" Val="Verilog Compiler Simulator (VCS)"/>
+    </Simulator>
+    <Simulator Name="Riviera">
+      <Option Name="Description" Val="Riviera-PRO Simulator"/>
+    </Simulator>
+    <Simulator Name="ActiveHDL">
+      <Option Name="Description" Val="Active-HDL Simulator"/>
+    </Simulator>
+  </Simulators>
+  <Runs Version="1" Minor="9">
+    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7a35tcpg236-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" State="current" Dir="$PRUNDIR/synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2015"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a35tcpg236-1" ConstrsSet="constrs_1" Description="Vivado Implementation Defaults" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2015"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+  </Runs>
+</Project>

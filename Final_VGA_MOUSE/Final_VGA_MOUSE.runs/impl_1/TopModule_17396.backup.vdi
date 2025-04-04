@@ -1,0 +1,484 @@
+#-----------------------------------------------------------
+# Vivado v2015.2 (64-bit)
+# SW Build 1266856 on Fri Jun 26 16:35:25 MDT 2015
+# IP Build 1264090 on Wed Jun 24 14:22:01 MDT 2015
+# Start of session at: Wed Apr 02 17:41:36 2025
+# Process ID: 21104
+# Log file: C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.runs/impl_1/TopModule.vdi
+# Journal file: C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source TopModule.tcl -notrace
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Netlist 29-17] Analyzing 54 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2015.2
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc]
+WARNING: [Vivado 12-584] No ports matched 'LEDS[15]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:64]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:64]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[15]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:65]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:65]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[14]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:66]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:66]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[14]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:67]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:67]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[13]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:68]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:68]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[13]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:69]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:69]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[12]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:70]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:70]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[12]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:71]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:71]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[11]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:72]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:72]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[11]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:73]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:73]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[10]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:74]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:74]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[10]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:75]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:75]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[9]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:76]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:76]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[9]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:77]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:77]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[8]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:78]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:78]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[8]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:79]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:79]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[7]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:80]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:80]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[7]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:81]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:81]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[6]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:82]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:82]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[6]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:83]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:83]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[5]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:84]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:84]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[5]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:85]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:85]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[4]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:86]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:86]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[4]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:87]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:87]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[3]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:88]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:88]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[3]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:89]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:89]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[2]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:90]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:90]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[2]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:91]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:91]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[1]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:92]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:92]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[1]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:93]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:93]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[0]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:94]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:94]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LEDS[0]]'. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:95]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc:95]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.srcs/constrs_1/imports/Projekt-mouse/MouseInterface.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 2 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 2 instances
+
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 463.492 ; gain = 3.125
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 1 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 16267065f
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 918.984 ; gain = 0.000
+
+Phase 2 Constant Propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-10] Eliminated 10 cells.
+Phase 2 Constant Propagation | Checksum: 113a0e02a
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 918.984 ; gain = 0.000
+
+Phase 3 Sweep
+INFO: [Opt 31-12] Eliminated 337 unconnected nets.
+INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-11] Eliminated 322 unconnected cells.
+Phase 3 Sweep | Checksum: 78793a36
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.078 . Memory (MB): peak = 918.984 ; gain = 0.000
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 918.984 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 78793a36
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.078 . Memory (MB): peak = 918.984 ; gain = 0.000
+Implement Debug Cores | Checksum: 11ddaddb3
+Logic Optimization | Checksum: 11ddaddb3
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 3.13 ns.
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 1 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 0 newly gated: 1 Total Ports: 2
+Ending PowerOpt Patch Enables Task | Checksum: 8028b638
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 948.543 ; gain = 0.000
+Ending Power Optimization Task | Checksum: 8028b638
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.156 . Memory (MB): peak = 948.543 ; gain = 29.559
+INFO: [Common 17-83] Releasing license: Implementation
+25 Infos, 32 Warnings, 32 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 948.543 ; gain = 488.176
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 948.543 ; gain = 0.000
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Coretcl 2-168] The results of DRC are in file C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.runs/impl_1/TopModule_drc_opted.rpt.
+INFO: [#UNDEF] Cannot write hardware definition file as there are no IPI block design hardware handoff files present
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
+
+Phase 1 Placer Runtime Estimator
+Phase 1 Placer Runtime Estimator | Checksum: 171afdbe
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 2 Placer Initialization
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 948.543 ; gain = 0.000
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 2.1 IO Placement/ Clock Placement/ Build Placer Device
+
+Phase 2.1.1 Pre-Place Cells
+Phase 2.1.1 Pre-Place Cells | Checksum: 12b4c674
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 948.543 ; gain = 0.000
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 2.1.2 IO & Clk Clean Up
+Phase 2.1.2 IO & Clk Clean Up | Checksum: 12b4c674
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.345 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 2.1.3 Implementation Feasibility check On IDelay
+Phase 2.1.3 Implementation Feasibility check On IDelay | Checksum: 12b4c674
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.345 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 2.1.4 Commit IO Placement
+Phase 2.1.4 Commit IO Placement | Checksum: 4f5075fc
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.345 . Memory (MB): peak = 948.543 ; gain = 0.000
+Phase 2.1 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 57c0e86f
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.345 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 2.2 Build Placer Netlist Model
+
+Phase 2.2.1 Place Init Design
+Phase 2.2.1 Place Init Design | Checksum: a0e42f91
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.360 . Memory (MB): peak = 948.543 ; gain = 0.000
+Phase 2.2 Build Placer Netlist Model | Checksum: a0e42f91
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.360 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 2.3 Constrain Clocks/Macros
+
+Phase 2.3.1 Constrain Global/Regional Clocks
+Phase 2.3.1 Constrain Global/Regional Clocks | Checksum: a0e42f91
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.360 . Memory (MB): peak = 948.543 ; gain = 0.000
+Phase 2.3 Constrain Clocks/Macros | Checksum: a0e42f91
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.360 . Memory (MB): peak = 948.543 ; gain = 0.000
+Phase 2 Placer Initialization | Checksum: a0e42f91
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.360 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 3 Global Placement
+Phase 3 Global Placement | Checksum: 8a32ed30
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.501 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 4 Detail Placement
+
+Phase 4.1 Commit Multi Column Macros
+Phase 4.1 Commit Multi Column Macros | Checksum: 8a32ed30
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.501 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 4.2 Commit Most Macros & LUTRAMs
+Phase 4.2 Commit Most Macros & LUTRAMs | Checksum: 59e35524
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.516 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 4.3 Area Swap Optimization
+Phase 4.3 Area Swap Optimization | Checksum: c900e110
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.516 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 4.4 Small Shape Detail Placement
+
+Phase 4.4.1 Commit Small Macros & Core Logic
+
+Phase 4.4.1.1 Commit Slice Clusters
+Phase 4.4.1.1 Commit Slice Clusters | Checksum: 4af6ad0e
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.579 . Memory (MB): peak = 948.543 ; gain = 0.000
+Phase 4.4.1 Commit Small Macros & Core Logic | Checksum: 4af6ad0e
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.579 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 4.4.2 Clock Restriction Legalization for Leaf Columns
+Phase 4.4.2 Clock Restriction Legalization for Leaf Columns | Checksum: 4af6ad0e
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.579 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 4.4.3 Clock Restriction Legalization for Non-Clock Pins
+Phase 4.4.3 Clock Restriction Legalization for Non-Clock Pins | Checksum: 4af6ad0e
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.579 . Memory (MB): peak = 948.543 ; gain = 0.000
+Phase 4.4 Small Shape Detail Placement | Checksum: 4af6ad0e
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.579 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 4.5 Re-assign LUT pins
+Phase 4.5 Re-assign LUT pins | Checksum: 4af6ad0e
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.595 . Memory (MB): peak = 948.543 ; gain = 0.000
+Phase 4 Detail Placement | Checksum: 4af6ad0e
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.595 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 5 Post Placement Optimization and Clean-Up
+
+Phase 5.1 PCOPT Shape updates
+Phase 5.1 PCOPT Shape updates | Checksum: cb6a8410
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.595 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 6 Post Commit Optimization
+Phase 6 Post Commit Optimization | Checksum: cb6a8410
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.595 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 5.2 Sweep Clock Roots: Post-Placement
+Phase 5.2 Sweep Clock Roots: Post-Placement | Checksum: cb6a8410
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.595 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 5.3 Post Placement Cleanup
+Phase 5.3 Post Placement Cleanup | Checksum: cb6a8410
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.595 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 5.4 Placer Reporting
+Phase 5.4 Placer Reporting | Checksum: cb6a8410
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.595 . Memory (MB): peak = 948.543 ; gain = 0.000
+
+Phase 5.5 Final Placement Cleanup
+Phase 5.5 Final Placement Cleanup | Checksum: 137256647
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.595 . Memory (MB): peak = 948.543 ; gain = 0.000
+Phase 5 Post Placement Optimization and Clean-Up | Checksum: 137256647
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.595 . Memory (MB): peak = 948.543 ; gain = 0.000
+Ending Placer Task | Checksum: f7290a2e
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.595 . Memory (MB): peak = 948.543 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+39 Infos, 32 Warnings, 32 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 948.543 ; gain = 0.000
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 948.543 ; gain = 0.000
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 948.543 ; gain = 0.000
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 948.543 ; gain = 0.000
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
+
+Phase 1 Build RT Design
+Phase 1 Build RT Design | Checksum: ccfbc29f
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1020.875 ; gain = 72.332
+
+Phase 2 Router Initialization
+INFO: [Route 35-64] No timing constraints were detected. The router will operate in resource-optimization mode.
+
+Phase 2.1 Pre Route Cleanup
+Phase 2.1 Pre Route Cleanup | Checksum: ccfbc29f
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1025.625 ; gain = 77.082
+ Number of Nodes with overlaps = 0
+Phase 2 Router Initialization | Checksum: a8e88fba
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1040.023 ; gain = 91.480
+
+Phase 3 Initial Routing
+Phase 3 Initial Routing | Checksum: d9267641
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1040.023 ; gain = 91.480
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 13
+ Number of Nodes with overlaps = 0
+Phase 4.1 Global Iteration 0 | Checksum: 1602abb00
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1040.023 ; gain = 91.480
+Phase 4 Rip-up And Reroute | Checksum: 1602abb00
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1040.023 ; gain = 91.480
+
+Phase 5 Delay and Skew Optimization
+Phase 5 Delay and Skew Optimization | Checksum: 1602abb00
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1040.023 ; gain = 91.480
+
+Phase 6 Post Hold Fix
+Phase 6 Post Hold Fix | Checksum: 1602abb00
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1040.023 ; gain = 91.480
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.0487124 %
+  Global Horizontal Routing Utilization  = 0.0495836 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Congestion Report
+North Dir 1x1 Area, Max Cong = 12.6126%, No Congested Regions.
+South Dir 1x1 Area, Max Cong = 14.4144%, No Congested Regions.
+East Dir 1x1 Area, Max Cong = 16.1765%, No Congested Regions.
+West Dir 1x1 Area, Max Cong = 17.6471%, No Congested Regions.
+Phase 7 Route finalize | Checksum: 1602abb00
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1040.023 ; gain = 91.480
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: 1602abb00
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1040.023 ; gain = 91.480
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: a5782d49
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1040.023 ; gain = 91.480
+INFO: [Route 35-16] Router Completed Successfully
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1040.023 ; gain = 91.480
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+47 Infos, 32 Warnings, 32 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1040.023 ; gain = 91.480
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.041 . Memory (MB): peak = 1040.023 ; gain = 0.000
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Coretcl 2-168] The results of DRC are in file C:/Users/s2736992/Final_VGA_MOUSE/Final_VGA_MOUSE.runs/impl_1/TopModule_drc_routed.rpt.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
+WARNING: [Power 33-232] No user defined clocks were found in the design!
+Resolution: Please specify clocks using create_clock/create_generated_clock for sequential elements. For pure combinatorial circuits, please specify a virtual clock, otherwise the vectorless estimation might be inaccurate
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+INFO: [Common 17-206] Exiting Vivado at Wed Apr 02 17:42:00 2025...

@@ -26,16 +26,20 @@ module MouseTransceiver(
     output reg [7:0] MouseStatus,               
     output reg [7:0] MouseX,               
     output reg [7:0] MouseY,
+    output [7:0] MouseDX,
+    output [7:0] MouseDY,
     output INTR   
 );  
 
     // X, Y Limits of Mouse Position based on VGA screen limits
     parameter [7:0] mouseLimitX = 160;
     parameter [7:0] mouseLimitY = 120;
-    // parameter [7:0] mouseLimitZ = 255;
     
-    //TriState Signals
-    //Clk
+    initial begin
+        MouseStatus <= 0;
+        MouseX <= MouseLimitX/2;
+        MouseY <= MouseLimitY/2;
+    end
     reg ClkMouseIn;
     wire ClkMouseOutEn;
     
@@ -79,6 +83,7 @@ module MouseTransceiver(
     wire SendByte;
     wire ByteSent;
     wire [7:0] ByteToSend;
+    
     MouseTransmitter T(
         .RESET(RESET),
         .CLK(CLK),
@@ -119,6 +124,7 @@ module MouseTransceiver(
     wire [7:0] MouseDxRaw;
     wire [7:0] MouseDyRaw;
     wire SendInterrupt;
+    wire [3:0] MasterStateCode;
     
     MouseMasterSM MSM(
         .RESET(RESET),
@@ -133,7 +139,8 @@ module MouseTransceiver(
         .MOUSE_STATUS(MouseStatusRaw),
         .MOUSE_DX(MouseDxRaw),
         .MOUSE_DY(MouseDyRaw),
-        .SEND_INTERRUPT(SendInterrupt)
+        .SEND_INTERRUPT(SendInterrupt),
+        .CURR_STATE(MasterStateCode)
     );
     
 
@@ -163,7 +170,7 @@ module MouseTransceiver(
             MouseY <= mouseLimitY/2;
         end
         else if (SendInterrupt) begin
-            MouseStatus <= MouseStatusRaw[7:0];
+            MouseStatus <= MouseStatusRaw;
             //X is modified based on DX with limits on max and min
             if(MouseNewX < 0)
                 MouseX <= 0;
